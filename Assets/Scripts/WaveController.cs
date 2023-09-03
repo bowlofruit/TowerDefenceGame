@@ -1,77 +1,77 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class WaveController : MonoBehaviour
+namespace TowerDefence
 {
-    [SerializeField] private WaveConfig _waveConfig;
-
-    public static UnityEvent OnEnemyDestroy { get; set; } = new UnityEvent(); 
-
-    private int _currentWave = 1;
-    private float _timeSinceLastSpawn = 0;
-    private int _enemiesAlive = 0;
-    private int _enemiesLeftToSpawn;
-    private bool _isSpawning = false;
-    private float _timeBetweenWaves = 3f;
-
-    private void Awake()
+    public class WaveController : MonoBehaviour
     {
-        OnEnemyDestroy.AddListener(EnemyDestroyed);
-    }
+        [SerializeField] private WaveConfig _waveConfig;
 
-    private void Start()
-    {
-        StartCoroutine(StartWave());
-    }
+        private int _currentWave = 1;
+        private float _timeSinceLastSpawn = 0;
+        private int _enemiesAlive = 0;
+        private int _enemiesLeftToSpawn;
+        private bool _isSpawning = false;
+        private float _timeBetweenWaves = 3f;
 
-    private void Update()
-    {
-        if (!_isSpawning) return;
-
-        _timeSinceLastSpawn += Time.deltaTime;
-
-        if(_timeSinceLastSpawn >= (1f / _waveConfig.SpawnInterval) && _enemiesLeftToSpawn > 0)
+        private void Awake()
         {
-            SpawnEnemy();
-            _enemiesLeftToSpawn--;
-            _enemiesAlive++;
-            _timeSinceLastSpawn = 0;
+            EventController.OnEnemyDestroy.AddListener(EnemyDestroyed);
         }
 
-        if(_enemiesAlive == 0 && _enemiesLeftToSpawn == 0)
+        private void Start()
         {
-            EndWave();
+            StartCoroutine(StartWave());
         }
-    }
 
-    private void EnemyDestroyed()
-    {
-        _enemiesAlive--;
-    }
+        private void Update()
+        {
+            if (!_isSpawning) return;
 
-    private void SpawnEnemy()
-    {
-        GameObject prefabToSpawn = _waveConfig.EnemyPrefabs[0];
-        Instantiate(prefabToSpawn, PathData.Instantion.StartPoint.position, Quaternion.identity);
-    }
+            _timeSinceLastSpawn += Time.deltaTime;
 
-    private int EnemiesPerWave()
-    {
-        return Mathf.RoundToInt(_waveConfig.NumberOfEnemies * Mathf.Pow(_currentWave, _waveConfig.DifficultScalingFactor));
-    }
+            if (_timeSinceLastSpawn >= 1f / _waveConfig.SpawnInterval && _enemiesLeftToSpawn > 0)
+            {
+                SpawnEnemy();
+                _enemiesLeftToSpawn--;
+                _enemiesAlive++;
+                _timeSinceLastSpawn = 0;
+            }
 
-    private IEnumerator StartWave()
-    {
-        yield return new WaitForSeconds(_timeBetweenWaves);
+            if (_enemiesAlive == 0 && _enemiesLeftToSpawn == 0)
+            {
+                EndWave();
+            }
+        }
 
-        _isSpawning = true;
-        _enemiesLeftToSpawn = EnemiesPerWave();
-    }
+        private void EnemyDestroyed()
+        {
+            _enemiesAlive--;
+        }
 
-    private void EndWave()
-    {
-        _isSpawning = false;
-        StartCoroutine(StartWave());
+        private void SpawnEnemy()
+        {
+            GameObject prefabToSpawn = _waveConfig.EnemyPrefabs[0];
+            Instantiate(prefabToSpawn, PathData.Instantion.StartPoint.position, Quaternion.identity);
+        }
+
+        private int EnemiesPerWave()
+        {
+            return Mathf.RoundToInt(_waveConfig.NumberOfEnemies * Mathf.Pow(_currentWave, _waveConfig.DifficultScalingFactor));
+        }
+
+        private IEnumerator StartWave()
+        {
+            yield return new WaitForSeconds(_timeBetweenWaves);
+
+            _isSpawning = true;
+            _enemiesLeftToSpawn = EnemiesPerWave();
+        }
+
+        private void EndWave()
+        {
+            _isSpawning = false;
+            StartCoroutine(StartWave());
+        }
     }
 }

@@ -1,17 +1,20 @@
 using UnityEngine;
 
-public class PathData : MonoBehaviour
+namespace TowerDefence
 {
-    [SerializeField] private Transform _startPoint;
-    [SerializeField] private Transform[] _path;
-
-    public Transform StartPoint { get => _startPoint; }
-    public Transform[] PathPoints { get => _path; }
-
-    public static PathData Instantion;
-
-    private void Awake()
+    public class PathData : MonoBehaviour
     {
-        Instantion = this;
+        [SerializeField] private Transform _startPoint;
+        [SerializeField] private Transform[] _path;
+
+        public Transform StartPoint { get => _startPoint; }
+        public Transform[] PathPoints { get => _path; }
+
+        public static PathData Instantion;
+
+        private void Awake()
+        {
+            Instantion = this;
+        }
     }
 }
