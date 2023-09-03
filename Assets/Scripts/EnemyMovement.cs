@@ -22,6 +22,7 @@ public class EnemyMovement : MonoBehaviour
 
             if (_pathIndex == PathData.Instantion.PathPoints.Length)
             {
+                WaveController.OnEnemyDestroy.Invoke();
                 Destroy(gameObject);
                 return;
             }
