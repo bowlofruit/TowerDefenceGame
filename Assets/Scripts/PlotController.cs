@@ -1,33 +1,50 @@
 using UnityEngine;
 
-public class PlotController : MonoBehaviour
+namespace TowerDefence
 {
-    [SerializeField] private SpriteRenderer _sr;
-    [SerializeField] private Color _hoverColor;
-
-    private GameObject _tower;
-    private Color _startColor;
-
-    private void Start()
+    public class PlotController : MonoBehaviour
     {
-        _startColor = _sr.color;
-    }
+        [SerializeField] private SpriteRenderer _sr;
+        [SerializeField] private Color _hoverColor;
 
-    private void OnMouseEnter()
-    {
-        _sr.color = _hoverColor;
-    }
+        private GameObject _tower;
+        private Color _startColor;
 
-    private void OnMouseExit()
-    {
-        _sr.color = _startColor;
-    }
+        private void Start()
+        {
+            _startColor = _sr.color;
+        }
 
-    private void OnMouseDown()
-    {
-        if(_tower != null) return;
+        private void OnMouseEnter()
+        {
+            _sr.color = _hoverColor;
+        }
 
-        GameObject towerToBuild = BuildController.Instantion.GetSelectedTower();
-        _tower = Instantiate(towerToBuild, transform.position, Quaternion.identity);
+        private void OnMouseExit()
+        {
+            _sr.color = _startColor;
+        }
+
+        private void OnMouseDown()
+        {
+            if (_tower != null) return;
+            BuildTower();
+        }
+
+        private void BuildTower()
+        {
+            GameObject towerToBuild = BuildController.Instance.GetSelectedTower();
+            _tower = Instantiate(towerToBuild, transform.position, Quaternion.identity);
+            if(_tower.GetComponent<TowerEconomic>().CanBuyTower())
+            {
+                _tower.GetComponent<TowerEconomic>().BuyTower();
+            }
+            else
+            {
+                Destroy(_tower);
+                _tower = null;
+                Debug.Log("Not enough coins to build this tower.");
+            }
+        }
     }
 }

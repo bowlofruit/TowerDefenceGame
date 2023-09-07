@@ -15,4 +15,6 @@ MonoBehaviour:
   _upgradeType: 0
   _damage: 10
   _shootRadius: 2
-  _speed: 1
+  _speed: 2
+  _buyPrice: 50
+  _sellPrice: 20

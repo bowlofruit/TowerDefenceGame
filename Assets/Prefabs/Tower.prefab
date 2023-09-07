@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5757907506418182085}
   - component: {fileID: 6914999836090009523}
+  - component: {fileID: -3909382211162755478}
   - component: {fileID: 4247784705277281147}
   m_Layer: 0
   m_Name: Tower
@@ -85,6 +86,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-3909382211162755478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6123562726963342447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07385b95d0089b84c85bd7ddba10c946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4247784705277281147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,3 +115,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _bulletPrefab: {fileID: 7067866306174534334, guid: cb4fb3891cbad7241b7967102c537b32, type: 3}
+  _towerEconomic: {fileID: -3909382211162755478}

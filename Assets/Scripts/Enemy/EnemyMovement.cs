@@ -13,7 +13,7 @@ namespace TowerDefence
 
         private void Start()
         {
-            _targetPathPoint = PathData.Instantion.StartPoint;
+            _targetPathPoint = PathController.Instance.StartPoint;
         }
 
         private void Update()
@@ -22,7 +22,7 @@ namespace TowerDefence
             {
                 _pathIndex++;
 
-                if (_pathIndex == PathData.Instantion.PathPoints.Length)
+                if (_pathIndex == PathController.Instance.PathPoints.Length)
                 {
                     EventController.OnEnemyDestroy.Invoke();
                     Destroy(gameObject);
@@ -30,7 +30,7 @@ namespace TowerDefence
                 }
                 else
                 {
-                    _targetPathPoint = PathData.Instantion.PathPoints[_pathIndex];
+                    _targetPathPoint = PathController.Instance.PathPoints[_pathIndex];
                 }
             }
         }

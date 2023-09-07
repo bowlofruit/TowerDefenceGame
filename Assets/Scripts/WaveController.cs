@@ -5,7 +5,7 @@ namespace TowerDefence
 {
     public class WaveController : MonoBehaviour
     {
-        [SerializeField] private WaveConfig _waveConfig;
+        [SerializeField] private LevelConfig _waveConfig;
 
         private int _currentWave = 1;
         private float _timeSinceLastSpawn = 0;
@@ -52,7 +52,7 @@ namespace TowerDefence
         private void SpawnEnemy()
         {
             GameObject prefabToSpawn = _waveConfig.EnemyPrefabs[0];
-            Instantiate(prefabToSpawn, PathData.Instantion.StartPoint.position, Quaternion.identity);
+            Instantiate(prefabToSpawn, PathController.Instance.StartPoint.position, Quaternion.identity);
         }
 
         private int EnemiesPerWave()

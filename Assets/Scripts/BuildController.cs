@@ -1,20 +1,23 @@
 using UnityEngine;
 
-public class BuildController : MonoBehaviour
+namespace TowerDefence
 {
-    public static BuildController Instantion;
-
-    [SerializeField] private GameObject[] towerPrefabs;
-
-    private int _selectedTower = 0;
-
-    private void Awake()
+    public class BuildController : MonoBehaviour
     {
-        Instantion = this;
-    }
+        [SerializeField] private GameObject[] towerPrefabs;
 
-    public GameObject GetSelectedTower()
-    {
-        return towerPrefabs[_selectedTower];
+        private int _selectedTower = 0;
+
+        public static BuildController Instance { get; private set; }
+
+        private void Awake()
+        {
+            Instance = this;
+        }
+
+        public GameObject GetSelectedTower()
+        {
+            return towerPrefabs[_selectedTower];
+        }
     }
 }

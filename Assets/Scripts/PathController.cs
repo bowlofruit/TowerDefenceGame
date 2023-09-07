@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace TowerDefence
 {
-    public class PathData : MonoBehaviour
+    public class PathController : MonoBehaviour
     {
         [SerializeField] private Transform _startPoint;
         [SerializeField] private Transform[] _path;
@@ -10,11 +10,11 @@ namespace TowerDefence
         public Transform StartPoint { get => _startPoint; }
         public Transform[] PathPoints { get => _path; }
 
-        public static PathData Instantion;
+        public static PathController Instance { get; private set; }
 
         private void Awake()
         {
-            Instantion = this;
+            Instance = this;
         }
     }
 }

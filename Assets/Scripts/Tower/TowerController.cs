@@ -9,9 +9,15 @@ namespace TowerDefence
         [SerializeField] private LayerMask _enemyMask;
 
         [SerializeField] private GameObject _bulletPrefab;
+        [SerializeField] private TowerEconomic _towerEconomic;
 
         private Transform _target;
         private float _timeUntilFire;
+
+        private void Awake()
+        {
+            _towerEconomic.SetTowerItem(_towerItem);
+        }
 
         private void Update()
         {
@@ -56,7 +62,10 @@ namespace TowerDefence
 
             if (hits.Length > 0)
             {
-                _target = hits[0].transform;
+                for (int i = 0; i < hits.Length; i++)
+                {
+                    _target = hits[i].transform;
+                }
             }
         }
 
