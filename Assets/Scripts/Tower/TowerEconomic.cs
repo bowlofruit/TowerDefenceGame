@@ -4,31 +4,36 @@ namespace TowerDefence
 {
     public class TowerEconomic : MonoBehaviour
     {
-        private TowerItem _item;
+        private int _buyPrice;
+        private int _sellPrice;
+        private int _upgradePrice;
 
-        public void SetTowerItem(TowerItem item)
+        public void SetTowerPrice(TowerItem item)
         {
-            _item = item;
+            _buyPrice = item.BuyPrice;
+            _sellPrice = item.SellPrice;
+            _upgradePrice = item.BuyPrice + item.BuyPrice / 2;
         }
 
         public void BuyTower()
         {
-            EventController.OnTowerBuy.Invoke(_item.BuyPrice);
+            EventController.OnTowerBuy.Invoke(_buyPrice);
         }
 
         public void SellTower()
         {
-            EventController.OnTowerSell.Invoke(_item.SellPrice);
+            EventController.OnTowerSell.Invoke(_sellPrice);
         }
 
         public void UpgradeTower()
         {
-            EventController.OnTowerUpgrade.Invoke(_item.BuyPrice);
+            EventController.OnTowerUpgrade.Invoke(_upgradePrice);
+            _upgradePrice += _buyPrice + _buyPrice / 2;
         }
 
         public bool CanBuyTower()
         {
-            return CoinsController.Instance.Coins >= _item.BuyPrice;
+            return CoinsController.Instance.Coins >= _buyPrice;
         }
     }
 }

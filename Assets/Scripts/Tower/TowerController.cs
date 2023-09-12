@@ -16,7 +16,7 @@ namespace TowerDefence
 
         private void Awake()
         {
-            _towerEconomic.SetTowerItem(_towerItem);
+            _towerEconomic.SetTowerPrice(_towerItem);
         }
 
         private void Update()

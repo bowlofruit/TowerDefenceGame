@@ -8,6 +8,7 @@ namespace TowerDefence
         [SerializeField] private Color _hoverColor;
 
         private GameObject _tower;
+        private TowerEconomic _towerEconomic;
         private Color _startColor;
 
         private void Start()
@@ -27,21 +28,28 @@ namespace TowerDefence
 
         private void OnMouseDown()
         {
-            if (_tower != null) return;
             BuildTower();
+            
+            if( _tower != null)
+            {
+                
+            }
         }
 
         private void BuildTower()
         {
             GameObject towerToBuild = BuildController.Instance.GetSelectedTower();
             _tower = Instantiate(towerToBuild, transform.position, Quaternion.identity);
-            if(_tower.GetComponent<TowerEconomic>().CanBuyTower())
+            _towerEconomic = _tower.GetComponent<TowerEconomic>();
+
+            if (_towerEconomic.CanBuyTower())
             {
-                _tower.GetComponent<TowerEconomic>().BuyTower();
+                _towerEconomic.BuyTower();
             }
             else
             {
                 Destroy(_tower);
+                _towerEconomic = null;
                 _tower = null;
                 Debug.Log("Not enough coins to build this tower.");
             }
