@@ -15,7 +15,7 @@ MonoBehaviour:
   _enemyPrefabs:
   - {fileID: 543051197213829668, guid: b3a8d485ba3a68047b2d90d53053a94c, type: 3}
   _numberOfWaves: 2
-  _spawnInterval: 0.62
+  _spawnInterval: 0.68
   _difficultScalingFactor: 0.5
   _numberOfEnemies: 6
   _startCoins: 100

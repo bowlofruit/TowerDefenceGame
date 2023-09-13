@@ -2,9 +2,10 @@ using UnityEngine;
 
 namespace TowerDefence
 {
-    public class Bullet : MonoBehaviour
+    public class BulletController : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D _rb;
+        [SerializeField] private LayerMask _enemyMask;
 
         private int _speed;
         private int _damage;
@@ -32,8 +33,11 @@ namespace TowerDefence
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(_damage);
-            Destroy(gameObject);
+            if(collision.gameObject.layer == _enemyMask)
+            {
+                collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(_damage);
+                Destroy(gameObject);
+            }
         }
     }
 }

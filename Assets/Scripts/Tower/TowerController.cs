@@ -45,20 +45,20 @@ namespace TowerDefence
 
         private bool CheckShootArea()
         {
-            return Vector2.Distance(_target.position, transform.position) <= _towerItem.ShootRadius;
+            return Vector2.Distance(_target.position, transform.position) <= _towerItem.Range;
         }
 
         private void Shoot()
         {
             GameObject bullet = Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
-            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            BulletController bulletScript = bullet.GetComponent<BulletController>();
             bulletScript.SetTarget(_target);
             bulletScript.SetSpeedAndDamage(_towerItem.Speed, _towerItem.Damage);
         }
 
         private void FindTarget()
         {
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, _towerItem.ShootRadius, transform.position, 0f, _enemyMask);
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, _towerItem.Range, transform.position, 0f, _enemyMask);
 
             if (hits.Length > 0)
             {
@@ -72,7 +72,7 @@ namespace TowerDefence
         private void OnDrawGizmos()
         {
             Handles.color = Color.green;
-            Handles.DrawWireDisc(transform.position, transform.forward, _towerItem.ShootRadius);
+            Handles.DrawWireDisc(transform.position, transform.forward, _towerItem.Range);
         }
     }
 }

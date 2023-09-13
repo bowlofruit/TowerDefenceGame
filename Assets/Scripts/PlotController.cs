@@ -6,10 +6,11 @@ namespace TowerDefence
     {
         [SerializeField] private SpriteRenderer _sr;
         [SerializeField] private Color _hoverColor;
+        [SerializeField] private TowerInfoUpdater _updaterUI;
 
         private GameObject _tower;
-        private TowerEconomic _towerEconomic;
         private Color _startColor;
+        private TowerEconomic _towerEconomic;
 
         private void Start()
         {
@@ -28,11 +29,13 @@ namespace TowerDefence
 
         private void OnMouseDown()
         {
-            BuildTower();
-            
-            if( _tower != null)
+            if(_tower == null)
             {
-                
+                BuildTower();
+            }
+            else
+            {
+                _updaterUI.ShowInfoAboveObject(transform.position);
             }
         }
 

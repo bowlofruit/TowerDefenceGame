@@ -162,4 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: -3195403045318340957}
-  _item: {fileID: 11400000, guid: 16ffa403147984a4b9b9d292bbf14065, type: 2}
+  _enemyMask:
+    serializedVersion: 2
+    m_Bits: 64
