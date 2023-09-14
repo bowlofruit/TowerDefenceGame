@@ -17,10 +17,14 @@ namespace TowerDefence
         {
             Instance = this;
             _coins = _levelConfig.StartCoins;
+
             UpdateViewCoinsUI();
+
             EventController.OnTowerBuy.AddListener(RemoveCoins);
             EventController.OnTowerSell.AddListener(AddCoins);
             EventController.OnTowerUpgrade.AddListener(RemoveCoins);
+
+            EventController.OnEnemyCoinsAmount.AddListener(AddCoins);
         }
 
         private void AddCoins(int coins)

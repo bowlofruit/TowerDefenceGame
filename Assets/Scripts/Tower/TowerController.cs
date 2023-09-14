@@ -14,6 +14,8 @@ namespace TowerDefence
         private Transform _target;
         private float _timeUntilFire;
 
+        public TowerItem TowerItem { get => _towerItem; }
+
         private void Awake()
         {
             _towerEconomic.SetTowerPrice(_towerItem);

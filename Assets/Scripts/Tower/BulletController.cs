@@ -33,11 +33,8 @@ namespace TowerDefence
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if(collision.gameObject.layer == _enemyMask)
-            {
-                collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(_damage);
-                Destroy(gameObject);
-            }
+            collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(_damage);
+            Destroy(gameObject);
         }
     }
 }

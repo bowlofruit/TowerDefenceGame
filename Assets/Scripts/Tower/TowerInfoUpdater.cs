@@ -1,13 +1,17 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace TowerDefence
 {
     public class TowerInfoUpdater : MonoBehaviour
     {
-        [SerializeField] private Canvas _infoCanvas;
+        [SerializeField] private GameObject _infoCanvas;
 
         [Header("Buttons settings")]
+        [SerializeField] private Button _updateButton;
+        [SerializeField] private Button _sellButton;
+
         [SerializeField] private TMP_Text _updatePrice;
         [SerializeField] private TMP_Text _sellPrice;
 
@@ -22,45 +26,66 @@ namespace TowerDefence
         private int _speed;
         private int _damage;
 
-        public void SetTowerSetting(TowerItem item)
+        private void Awake()
+        {
+            EventController.OnUpdateUI.AddListener(SetParamsText);
+        }
+
+        public void SetTowerSetting(TowerItem item, TowerEconomic towerEconomic)
         {
             _range = item.Range;
             _speed = item.Speed;
             _damage = item.Damage;
 
-            SetParamsText();
+            SetParamsText(towerEconomic);
         }
 
-        private void SetParamsText()
+        public void SetButtonsListeners(TowerEconomic towerEconomic)
         {
+            _updateButton.onClick.AddListener(towerEconomic.UpgradeTower);
+            _sellButton.onClick.AddListener(towerEconomic.SellTower);
+            _sellButton.onClick.AddListener(HideInfo);
+        }
+
+        public void RemoveButtonsListeners()
+        {
+            _updateButton.onClick.RemoveAllListeners();
+            _sellButton.onClick.RemoveAllListeners();
+        }
+
+        private void SetParamsText(TowerEconomic towerEconomic)
+        {
+            _updatePrice.text = towerEconomic.UpgradePrice.ToString();
+            _sellPrice.text = towerEconomic.SellPrice.ToString();
+
             _rangeText.text = _range.ToString();
             _speedText.text = _speed.ToString();
             _damageText.text = _damage.ToString();
         }
 
-        public void ShowInfoAboveObject(Vector3 worldPosition)
+        public void ShowInfo(TowerItem item, TowerEconomic towerEconomic)
         {
-            _infoCanvas.gameObject.SetActive(true);
+            _infoCanvas.SetActive(true);
 
-            float cameraHeight = _mainCamera.orthographicSize * 2;
+            SetTowerSetting(item, towerEconomic);
 
-            Vector2 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
+            Vector3 mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-            if (screenPosition.y > cameraHeight / 2f)
+            _infoCanvas.transform.position = new Vector3(mousePosition.x, mousePosition.y, 0f);
+
+            if (mousePosition.y > 0)
             {
-                _infoCanvas.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 1f);
+                _infoCanvas.transform.position += new Vector3(0f, -2.5f, 0f);
             }
             else
             {
-                _infoCanvas.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0f);
+                _infoCanvas.transform.position += new Vector3(0f, 2.5f, 0f);
             }
-
-            _infoCanvas.GetComponent<RectTransform>().position = screenPosition;
         }
 
         public void HideInfo()
         {
-            _infoCanvas.gameObject.SetActive(false);
+            _infoCanvas.SetActive(false);
         }
     }
 }

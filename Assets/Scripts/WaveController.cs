@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace TowerDefence
@@ -6,6 +7,7 @@ namespace TowerDefence
     public class WaveController : MonoBehaviour
     {
         [SerializeField] private LevelConfig _waveConfig;
+        [SerializeField] private TMP_Text _waveCounter;
 
         private int _currentWave = 1;
         private float _timeSinceLastSpawn = 0;
@@ -21,7 +23,7 @@ namespace TowerDefence
 
         private void Start()
         {
-            StartCoroutine(StartWave());
+            EndWave();
         }
 
         private void Update()
@@ -71,7 +73,13 @@ namespace TowerDefence
         private void EndWave()
         {
             _isSpawning = false;
-            StartCoroutine(StartWave());
+            _currentWave++;
+            _waveCounter.text = $"Wave {_currentWave}/{_waveConfig.NumberOfWaves}";
+
+            if (_currentWave <= _waveConfig.NumberOfWaves)
+            {
+                StartCoroutine(StartWave());
+            }
         }
     }
 }
