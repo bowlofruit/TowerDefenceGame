@@ -3,23 +3,17 @@ using UnityEditor;
 
 namespace TowerDefence
 {
-    public class TowerController : MonoBehaviour
+    public class TowerShooter : MonoBehaviour
     {
-        [SerializeField] private TowerItem _towerItem;
         [SerializeField] private LayerMask _enemyMask;
-
         [SerializeField] private GameObject _bulletPrefab;
-        [SerializeField] private TowerEconomic _towerEconomic;
+
+        private int _speed;
+        private int _damage;
+        private int _range;
 
         private Transform _target;
         private float _timeUntilFire;
-
-        public TowerItem TowerItem { get => _towerItem; }
-
-        private void Awake()
-        {
-            _towerEconomic.SetTowerPrice(_towerItem);
-        }
 
         private void Update()
         {
@@ -37,7 +31,7 @@ namespace TowerDefence
             {
                 _timeUntilFire += Time.deltaTime;
 
-                if (_timeUntilFire >= 1f / _towerItem.Speed)
+                if (_timeUntilFire >= 1f / _speed)
                 {
                     Shoot();
                     _timeUntilFire = 0f;
@@ -47,7 +41,7 @@ namespace TowerDefence
 
         private bool CheckShootArea()
         {
-            return Vector2.Distance(_target.position, transform.position) <= _towerItem.Range;
+            return Vector2.Distance(_target.position, transform.position) <= _range;
         }
 
         private void Shoot()
@@ -55,26 +49,30 @@ namespace TowerDefence
             GameObject bullet = Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
             BulletController bulletScript = bullet.GetComponent<BulletController>();
             bulletScript.SetTarget(_target);
-            bulletScript.SetSpeedAndDamage(_towerItem.Speed, _towerItem.Damage);
+            bulletScript.SetSpeedAndDamage(_speed, _damage);
         }
 
         private void FindTarget()
         {
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, _towerItem.Range, transform.position, 0f, _enemyMask);
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, _range, transform.position, 0f, _enemyMask);
 
             if (hits.Length > 0)
             {
-                for (int i = 0; i < hits.Length; i++)
-                {
-                    _target = hits[i].transform;
-                }
+                _target = hits[0].transform;
             }
         }
 
         private void OnDrawGizmos()
         {
             Handles.color = Color.green;
-            Handles.DrawWireDisc(transform.position, transform.forward, _towerItem.Range);
+            Handles.DrawWireDisc(transform.position, transform.forward, _range);
+        }
+
+        public void InitParams(int speed, int damage, int range)
+        {
+            _speed = speed;
+            _damage = damage;
+            _range = range;
         }
     }
 }

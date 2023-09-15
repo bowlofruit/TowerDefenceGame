@@ -9,12 +9,13 @@ namespace TowerDefence
         [SerializeField] private LevelConfig _waveConfig;
         [SerializeField] private TMP_Text _waveCounter;
 
-        private int _currentWave = 1;
+        private int _currentWave = 0;
         private float _timeSinceLastSpawn = 0;
         private int _enemiesAlive = 0;
         private int _enemiesLeftToSpawn;
         private bool _isSpawning = false;
         private float _timeBetweenWaves = 3f;
+        private int _enemyCounter = 0;
 
         private void Awake()
         {
@@ -53,7 +54,8 @@ namespace TowerDefence
 
         private void SpawnEnemy()
         {
-            GameObject prefabToSpawn = _waveConfig.EnemyPrefabs[0];
+            GameObject prefabToSpawn = _waveConfig.EnemyPrefabs[_enemyCounter];
+            _enemyCounter = (_enemyCounter + 1)%_waveConfig.EnemyPrefabs.Length;
             Instantiate(prefabToSpawn, PathController.Instance.StartPoint.position, Quaternion.identity);
         }
 

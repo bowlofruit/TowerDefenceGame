@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyPrefabs:
   - {fileID: 543051197213829668, guid: b3a8d485ba3a68047b2d90d53053a94c, type: 3}
+  - {fileID: 543051197213829668, guid: faa8f22f9f526f74180862d759be0f88, type: 3}
+  - {fileID: 543051197213829668, guid: 6067e8fedefea184d9286782c77b373a, type: 3}
   _numberOfWaves: 5
   _spawnInterval: 0.68
   _difficultScalingFactor: 0.5

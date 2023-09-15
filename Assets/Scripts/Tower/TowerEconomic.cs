@@ -12,11 +12,11 @@ namespace TowerDefence
         public int SellPrice { get => _sellPrice; set => _sellPrice = value; }
         public int UpgradePrice { get => _upgradePrice; set => _upgradePrice = value; }
 
-        public void SetTowerPrice(TowerItem item)
+        public void InitParams(int buyPrice, int sellPrice)
         {
-            _buyPrice = item.BuyPrice;
-            _sellPrice = item.SellPrice;
-            _upgradePrice = item.BuyPrice + item.BuyPrice / 2;
+            _buyPrice = buyPrice;
+            _sellPrice = sellPrice;
+            _upgradePrice = buyPrice + buyPrice / 2;
         }
 
         public void BuyTower()

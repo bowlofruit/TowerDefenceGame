@@ -24,16 +24,20 @@ namespace TowerDefence
 
         private void FixedUpdate()
         {
-            if (!_target) return;
+            if (!_target) 
+            {
+                Destroy(gameObject);
+                return;
+            }
 
             Vector2 dir = (_target.position - transform.position).normalized;
 
-            _rb.velocity = dir * _speed;
+            _rb.velocity = dir * _speed * 3;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(_damage);
+            collision.gameObject.GetComponent<EnemyDeath>().TakeDamage(_damage);
             Destroy(gameObject);
         }
     }

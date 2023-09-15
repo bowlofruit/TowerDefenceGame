@@ -4,9 +4,8 @@ namespace TowerDefence
 {
     public class EnemyMovement : MonoBehaviour
     {
-        [Range(0, 100)]
-        [SerializeField] private float _moveSpeed;
         [SerializeField] private Rigidbody2D _rb;
+        private float _moveSpeed;
 
         private Transform _targetPathPoint;
         private int _pathIndex;
@@ -14,6 +13,11 @@ namespace TowerDefence
         private void Start()
         {
             _targetPathPoint = PathController.Instance.StartPoint;
+        }
+
+        public void InitParams(float moveSpeed)
+        {
+            _moveSpeed = moveSpeed;
         }
 
         private void Update()

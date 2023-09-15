@@ -6,19 +6,17 @@ namespace TowerDefence
     {
         [SerializeField] private SpriteRenderer _sr;
         [SerializeField] private Color _hoverColor;
-        [SerializeField] private TowerInfoUpdater _updaterUI;
+        [SerializeField] private UITowerInfoUpdater _UIupdater;
+        [SerializeField] private GameObject _UITowerCreator;
 
-        private GameObject _tower;
         private Color _startColor;
-        private TowerEconomic _towerEconomic;
-        private TowerItem _towerItem;
+        private GameObject _tower;
 
-        private bool _isActiveUI = false;
+        public GameObject Tower { get => _tower; set => _tower = value; }
 
         private void Start()
         {
             _startColor = _sr.color;
-            _updaterUI = Camera.main.GetComponent<TowerInfoUpdater>();
         }
 
         private void OnMouseEnter()
@@ -33,54 +31,31 @@ namespace TowerDefence
 
         private void OnMouseDown()
         {
-            if (_tower == null)
+            if(_tower == null)
             {
-                BuildTower();
+                ToggleUI(_UITowerCreator, _UIupdater.gameObject);
+                ActivePlotSetter.ActivePlot = this;
             }
             else
             {
-                ToggleUI();
+                TowerItem towerItem = _tower.GetComponent<TowerInicializator>().Item;
+                TowerEconomic towerEconomic = _tower.GetComponent<TowerEconomic>();
+                ToggleUI(_UIupdater.gameObject, _UITowerCreator);
+                _UIupdater.RefreshInfo(towerItem, towerEconomic);
             }
         }
 
-        private void BuildTower()
+        private void ToggleUI(GameObject panel, GameObject otherPanel)
         {
-            GameObject towerToBuild = BuildController.Instance.GetSelectedTower();
-            _tower = Instantiate(towerToBuild, transform.position, Quaternion.identity);
-
-            _towerEconomic = _tower.GetComponent<TowerEconomic>();
-            _towerItem = _tower.GetComponent<TowerController>().TowerItem;
-
-            if (_towerEconomic.CanBuyTower())
+            otherPanel.SetActive(false);
+            if (panel.activeSelf)
             {
-                _towerEconomic.BuyTower();
-                _towerEconomic.SetTowerPrice(_towerItem);
+                panel.SetActive(false);
             }
             else
             {
-                Destroy(_tower);
-
-                _towerEconomic = null;
-                _tower = null;
-                _towerItem = null;
-
-                Debug.Log("Not enough coins to build this tower.");
+                panel.SetActive(true);
             }
-        }
-
-        private void ToggleUI()
-        {
-            if (_isActiveUI)
-            {
-                _updaterUI.RemoveButtonsListeners();
-                _updaterUI.HideInfo();
-            }
-            else
-            {
-                _updaterUI.SetButtonsListeners(_towerEconomic);
-                _updaterUI.ShowInfo(_towerItem, _towerEconomic);
-            }
-            _isActiveUI = !_isActiveUI;
         }
     }
 }

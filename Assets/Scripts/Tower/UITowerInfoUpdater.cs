@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 namespace TowerDefence
 {
-    public class TowerInfoUpdater : MonoBehaviour
+    public class UITowerInfoUpdater : MonoBehaviour
     {
-        [SerializeField] private GameObject _infoCanvas;
+        [SerializeField] private GameObject _infoPanel;
 
         [Header("Buttons settings")]
         [SerializeField] private Button _updateButton;
@@ -63,29 +63,27 @@ namespace TowerDefence
             _damageText.text = _damage.ToString();
         }
 
-        public void ShowInfo(TowerItem item, TowerEconomic towerEconomic)
+        public void RefreshInfo(TowerItem item, TowerEconomic towerEconomic)
         {
-            _infoCanvas.SetActive(true);
-
             SetTowerSetting(item, towerEconomic);
 
             Vector3 mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-            _infoCanvas.transform.position = new Vector3(mousePosition.x, mousePosition.y, 0f);
+            _infoPanel.transform.position = new Vector3(mousePosition.x, mousePosition.y, 0f);
 
             if (mousePosition.y > 0)
             {
-                _infoCanvas.transform.position += new Vector3(0f, -2.5f, 0f);
+                _infoPanel.transform.position += new Vector3(0f, -2.5f, 0f);
             }
             else
             {
-                _infoCanvas.transform.position += new Vector3(0f, 2.5f, 0f);
+                _infoPanel.transform.position += new Vector3(0f, 2.5f, 0f);
             }
         }
 
-        public void HideInfo()
+        private void HideInfo()
         {
-            _infoCanvas.SetActive(false);
+            _infoPanel.SetActive(false);
         }
     }
 }
