@@ -1,18 +1,21 @@
+using System;
 using UnityEngine;
 
 namespace TowerDefence
 {
-    public class BulletController : MonoBehaviour
+    public class Bullet : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private LayerMask _enemyMask;
 
+        private Action<Bullet> _killAction;
         private int _speed;
         private int _damage;
         private Transform _target;
 
-        public void SetSpeedAndDamage(int speed, int damage)
+        public void InitParams(Action<Bullet> killAction, int speed, int damage)
         {
+            _killAction = killAction;
             _speed = speed;
             _damage = damage;
         }
@@ -38,7 +41,7 @@ namespace TowerDefence
         private void OnCollisionEnter2D(Collision2D collision)
         {
             collision.gameObject.GetComponent<EnemyDeath>().TakeDamage(_damage);
-            Destroy(gameObject);
+            _killAction(this);
         }
     }
 }

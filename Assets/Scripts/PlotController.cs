@@ -6,7 +6,7 @@ namespace TowerDefence
     {
         [SerializeField] private SpriteRenderer _sr;
         [SerializeField] private Color _hoverColor;
-        [SerializeField] private UITowerInfoUpdater _UIupdater;
+        [SerializeField] private UITowerInfoUpdater _UIUpdater;
         [SerializeField] private GameObject _UITowerCreator;
 
         private Color _startColor;
@@ -33,15 +33,17 @@ namespace TowerDefence
         {
             if(_tower == null)
             {
-                ToggleUI(_UITowerCreator, _UIupdater.gameObject);
+                ToggleUI(_UITowerCreator, _UIUpdater.gameObject);
                 ActivePlotSetter.ActivePlot = this;
             }
             else
             {
                 TowerItem towerItem = _tower.GetComponent<TowerInicializator>().Item;
                 TowerEconomic towerEconomic = _tower.GetComponent<TowerEconomic>();
-                ToggleUI(_UIupdater.gameObject, _UITowerCreator);
-                _UIupdater.RefreshInfo(towerItem, towerEconomic);
+                ToggleUI(_UIUpdater.gameObject, _UITowerCreator);
+                _UIUpdater.SetTowerSetting(towerItem);
+                _UIUpdater.SetParamsText(towerEconomic);
+                _UIUpdater.SetButtonsListeners(towerEconomic);
             }
         }
 
@@ -54,6 +56,7 @@ namespace TowerDefence
             }
             else
             {
+                panel.GetComponent<UIMovement>().ReplaceWindow();
                 panel.SetActive(true);
             }
         }

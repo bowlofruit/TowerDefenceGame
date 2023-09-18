@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace TowerDefence
 {
-    public class UITowerCreator : MonoBehaviour //TODO
+    public class UITowerCreator : MonoBehaviour
     {
         [SerializeField] private Button _towerCretor;
         [SerializeField] GameObject _towerPrefab;
@@ -16,8 +16,7 @@ namespace TowerDefence
         private void BuildTower()
         {
             Debug.Log(ActivePlotSetter.ActivePlot.name);
-            ActivePlotSetter.ActivePlot.Tower = _towerPrefab;
-            Instantiate(_towerPrefab, ActivePlotSetter.ActivePlot.transform);
+            ActivePlotSetter.ActivePlot.Tower = Instantiate(_towerPrefab, ActivePlotSetter.ActivePlot.transform.position, Quaternion.identity);
         }
     }
 }
