@@ -6,7 +6,8 @@ namespace TowerDefence
     public class UITowerCreator : MonoBehaviour
     {
         [SerializeField] private Button _towerCretor;
-        [SerializeField] GameObject _towerPrefab;
+        [SerializeField] private GameObject _towerPrefab;
+        [SerializeField] private TowerInicializator _towerInicializator;
 
         private void Awake()
         {
@@ -15,8 +16,11 @@ namespace TowerDefence
 
         private void BuildTower()
         {
-            Debug.Log(ActivePlotSetter.ActivePlot.name);
-            ActivePlotSetter.ActivePlot.Tower = Instantiate(_towerPrefab, ActivePlotSetter.ActivePlot.transform.position, Quaternion.identity);
+            if (CoinsController.Instance.Coins >= _towerInicializator.Item.BuyPrice)
+            {
+                EventController.OnTowerBuy.Invoke(_towerInicializator.Item.BuyPrice);
+                ActivePlotSetter.ActivePlot.Tower = Instantiate(_towerPrefab, ActivePlotSetter.ActivePlot.transform.position, Quaternion.identity);
+            }
         }
     }
 }

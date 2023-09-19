@@ -3279,6 +3279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _towerCretor: {fileID: 579638958}
   _towerPrefab: {fileID: 6123562726963342447, guid: 36eafa16dde2fa943a9276193ddfd389, type: 3}
+  _towerInicializator: {fileID: 2035468715980772145, guid: 36eafa16dde2fa943a9276193ddfd389, type: 3}
 --- !u!4 &583868912 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4525687150970854234, guid: a76e60c022e631d4aaf1e36aecc84e3d, type: 3}
@@ -6776,6 +6777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _towerCretor: {fileID: 1259063078}
   _towerPrefab: {fileID: 6123562726963342447, guid: 4a296d30c07f7f54f808f639d5f43c2a, type: 3}
+  _towerInicializator: {fileID: 2035468715980772145, guid: 4a296d30c07f7f54f808f639d5f43c2a, type: 3}
 --- !u!1 &1262356589
 GameObject:
   m_ObjectHideFlags: 0
@@ -6913,6 +6915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _towerCretor: {fileID: 1262356591}
   _towerPrefab: {fileID: 6123562726963342447, guid: 1de7ddaf16057244e976f2de22d8bda8, type: 3}
+  _towerInicializator: {fileID: 2035468715980772145, guid: 1de7ddaf16057244e976f2de22d8bda8, type: 3}
 --- !u!1001 &1264630243
 PrefabInstance:
   m_ObjectHideFlags: 0

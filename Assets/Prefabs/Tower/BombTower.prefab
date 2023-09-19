@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 6914999836090009523}
   - component: {fileID: 2035468715980772145}
   - component: {fileID: -3909382211162755478}
-  - component: {fileID: 4247784705277281147}
+  - component: {fileID: 3112156193654426644}
+  - component: {fileID: -4240160954364151841}
   m_Layer: 0
   m_Name: BombTower
   m_TagString: Untagged
@@ -100,8 +101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _item: {fileID: 11400000, guid: 883350f1e0ea2354993375bc93c3376b, type: 2}
-  _towerEconomic: {fileID: -3909382211162755478}
-  _shooter: {fileID: 4247784705277281147}
 --- !u!114 &-3909382211162755478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07385b95d0089b84c85bd7ddba10c946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4247784705277281147
+  _item: {fileID: 0}
+--- !u!114 &3112156193654426644
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,10 +123,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 6123562726963342447}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 445e17f96bdb4bd4aa8f09897aface6f, type: 3}
+  m_Script: {fileID: 11500000, guid: 668bcaebb0728e146b6ca3ef8065c54d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _item: {fileID: 0}
+  _bulletPrefab: {fileID: 7067866306174534334, guid: cb4fb3891cbad7241b7967102c537b32, type: 3}
+  _speed: 0
+  _damage: 0
+  _enemyDetector: {fileID: 136264406608339511, guid: 36eafa16dde2fa943a9276193ddfd389, type: 3}
+--- !u!114 &-4240160954364151841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6123562726963342447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d967cac62242504fb7f5edcfd936a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _item: {fileID: 0}
   _enemyMask:
     serializedVersion: 2
     m_Bits: 64
-  _bulletPrefab: {fileID: 7067866306174534334, guid: cb4fb3891cbad7241b7967102c537b32, type: 3}
+  _range: 2
