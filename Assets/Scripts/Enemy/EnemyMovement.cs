@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace TowerDefence
@@ -12,7 +13,7 @@ namespace TowerDefence
 
         private void Start()
         {
-            _targetPathPoint = PathController.Instance.StartPoint;
+            _targetPathPoint = LevelCreator.Instance.WayPoints[0].transform;
         }
 
         public void InitParams(float moveSpeed)
@@ -26,7 +27,7 @@ namespace TowerDefence
             {
                 _pathIndex++;
 
-                if (_pathIndex == PathController.Instance.PathPoints.Length)
+                if (_pathIndex == LevelCreator.Instance.WayPoints.Count)
                 {
                     EventController.OnEnemyDestroy.Invoke();
                     Destroy(gameObject);
@@ -34,7 +35,7 @@ namespace TowerDefence
                 }
                 else
                 {
-                    _targetPathPoint = PathController.Instance.PathPoints[_pathIndex];
+                    _targetPathPoint = LevelCreator.Instance.WayPoints[_pathIndex].transform;
                 }
             }
         }

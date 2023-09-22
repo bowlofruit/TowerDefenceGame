@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4525687150970854234}
   - component: {fileID: 2015733310483488695}
-  - component: {fileID: 5803673148896979130}
-  - component: {fileID: 5866881044737066168}
+  - component: {fileID: 4058828397302240424}
+  - component: {fileID: 5648266295985164599}
   m_Layer: 0
   m_Name: Plot
   m_TagString: Untagged
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.25490198}
+  m_Sprite: {fileID: -252266057, guid: 49a2410f99fa84c49a6812c5ceed2d0a, type: 3}
+  m_Color: {r: 0.990566, g: 0.7106334, b: 0.36819148, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -86,7 +86,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5803673148896979130
+--- !u!114 &4058828397302240424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7850949830269993911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af1923833f868b4085dd7b1b129484a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _UIUpdater: {fileID: 0}
+  _UITowerCreator: {fileID: 0}
+  _towerItem: {fileID: 0}
+  _towerEconomic: {fileID: 0}
+  isGround: 0
+--- !u!61 &5648266295985164599
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,17 +148,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5866881044737066168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7850949830269993911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4e51c7895bb6544ba2ffeddc114e9c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sr: {fileID: 2015733310483488695}
-  _hoverColor: {r: 1, g: 1, b: 1, a: 0.7529412}

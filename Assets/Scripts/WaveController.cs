@@ -29,7 +29,7 @@ namespace TowerDefence
 
         private void Update()
         {
-            if (!_isSpawning) return;
+            if (!_isSpawning || _currentWave > _waveConfig.NumberOfWaves) return;
 
             _timeSinceLastSpawn += Time.deltaTime;
 
@@ -56,7 +56,8 @@ namespace TowerDefence
         {
             GameObject prefabToSpawn = _waveConfig.EnemyPrefabs[_enemyCounter];
             _enemyCounter = (_enemyCounter + 1)%_waveConfig.EnemyPrefabs.Length;
-            Instantiate(prefabToSpawn, PathController.Instance.StartPoint.position, Quaternion.identity);
+            Instantiate(prefabToSpawn, LevelCreator.Instance.WayPoints[0].transform.position, Quaternion.identity, this.transform);
+            
         }
 
         private int EnemiesPerWave()
@@ -77,11 +78,7 @@ namespace TowerDefence
             _isSpawning = false;
             _currentWave++;
             _waveCounter.text = $"Wave {_currentWave}/{_waveConfig.NumberOfWaves}";
-
-            if (_currentWave <= _waveConfig.NumberOfWaves)
-            {
-                StartCoroutine(StartWave());
-            }
+            StartCoroutine(StartWave());
         }
     }
 }

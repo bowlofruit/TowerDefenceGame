@@ -22,16 +22,19 @@ namespace TowerDefence
         private int _speed;
         private int _damage;
 
+        public static UITowerInfoUpdater Instance;
+
         private void Awake()
         {
+            Instance = this;
             EventController.OnUpdateUI.AddListener(SetParamsText);
         }
 
-        public void SetTowerSetting(TowerItem item)
+        public void InitTowerSetting(int range, int speed, int damage)
         {
-            _range = item.Range;
-            _speed = item.Speed;
-            _damage = item.Damage;
+            _range = range;
+            _speed = speed;
+            _damage = damage;
         }
 
         public void SetButtonsListeners(TowerEconomic towerEconomic)

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace TowerDefence
 {
-    public class TowerEconomic : TowerInicializator
+    public class TowerEconomic : MonoBehaviour
     {
         private int _buyPrice;
         private int _sellPrice;
@@ -12,10 +12,11 @@ namespace TowerDefence
         public int SellPrice { get => _sellPrice; set => _sellPrice = value; }
         public int UpgradePrice { get => _upgradePrice; set => _upgradePrice = value; }
 
-        private void Start()
+        public void Init(int buyPrice, int sellPrice)
         {
-            _buyPrice = base.Item.BuyPrice;
-            _sellPrice = base.Item.SellPrice;
+            _buyPrice = buyPrice;
+            _sellPrice = sellPrice;
+            _upgradePrice = _buyPrice * (int)1.5f;
         }
 
         public void BuyTower()

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0183962ed4981e4cb0f3be83564f754, type: 3}
   m_Name: FastEnemy
   m_EditorClassIdentifier: 
-  _health: 60
+  _health: 30
   _speed: 2.64
   _damage: 1
   _reward: 50

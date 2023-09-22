@@ -101,6 +101,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _item: {fileID: 11400000, guid: 14b2b6cb23fb8114dace697dc7512bee, type: 2}
+  _spawner: {fileID: -2165214741295017642, guid: 36eafa16dde2fa943a9276193ddfd389, type: 3}
+  _enemyDetector: {fileID: 136264406608339511, guid: 36eafa16dde2fa943a9276193ddfd389, type: 3}
+  _towerEconomic: {fileID: -3909382211162755478, guid: 36eafa16dde2fa943a9276193ddfd389, type: 3}
 --- !u!114 &-3909382211162755478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,7 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07385b95d0089b84c85bd7ddba10c946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _item: {fileID: 0}
 --- !u!114 &-5140465482054429873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,7 +128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668bcaebb0728e146b6ca3ef8065c54d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _item: {fileID: 0}
   _bulletPrefab: {fileID: 7067866306174534334, guid: cb4fb3891cbad7241b7967102c537b32, type: 3}
   _speed: 0
   _damage: 0
@@ -143,7 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d967cac62242504fb7f5edcfd936a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _item: {fileID: 0}
   _enemyMask:
     serializedVersion: 2
     m_Bits: 64

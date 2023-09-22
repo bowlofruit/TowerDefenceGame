@@ -3,7 +3,7 @@ using UnityEngine.Pool;
 
 namespace TowerDefence
 {
-    public class BulletSpawner : TowerInicializator
+    public class BulletSpawner : MonoBehaviour
     {
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private int _speed;
@@ -13,12 +13,16 @@ namespace TowerDefence
 
         private ObjectPool<GameObject> _bulletPool;
         private Transform _target;
+        private float _timeUntilFire;
+
+        public void Init(int speed, int damage)
+        {
+            _speed = speed;
+            _damage = damage;
+        }
 
         private void Start()
         {
-            _speed = Item.Speed;
-            _damage = Item.Damage;
-
             _bulletPool = new ObjectPool<GameObject>(() =>
             {
                 return Instantiate(_bulletPrefab);
@@ -44,7 +48,17 @@ namespace TowerDefence
 
             if (_enemyDetector.IsInRange(_target))
             {
-                Shoot();
+                _timeUntilFire += Time.deltaTime;
+
+                if (_timeUntilFire >= 1f / _speed)
+                {
+                    Shoot();
+                    _timeUntilFire = 0f;
+                }
+            }
+            else
+            {
+                _target = null;
             }
         }
 
