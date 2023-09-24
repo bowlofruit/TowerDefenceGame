@@ -36,7 +36,6 @@ namespace TowerDefence
             {
                 EventController.OnTowerUpgrade.Invoke(_upgradePrice);
                 _upgradePrice += _buyPrice + _buyPrice / 2;
-                EventController.OnUpdateUI.Invoke(this);
             }
             else
             {

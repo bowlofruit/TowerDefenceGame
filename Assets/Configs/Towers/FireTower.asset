@@ -16,5 +16,5 @@ MonoBehaviour:
   _damage: 10
   _range: 2
   _speed: 2
-  _buyPrice: 60
+  _buyPrice: 50
   _sellPrice: 25

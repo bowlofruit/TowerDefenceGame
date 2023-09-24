@@ -6,22 +6,49 @@ namespace TowerDefence
     {
         [SerializeField] private SpriteRenderer _sr;
         [SerializeField] private Color _hoverColor;
+        [SerializeField] private Color _selectedColor;
 
-        private Color _startColor;
+        private Color _normalColor;
+        private PlotTowerSettings _plotTowerSettings;
 
         private void Start()
         {
-            _startColor = _sr.color;
+            _normalColor = _sr.color;
+            _plotTowerSettings = GetComponent<PlotTowerSettings>();
+            EventController.OnPlotSelected.AddListener(CheckActivityPlot);
         }
 
         private void OnMouseEnter()
         {
-            _sr.color = _hoverColor;
+            if(ActivePlotSetter.ActivePlot != _plotTowerSettings)
+            {
+                ChangeColor(_hoverColor);
+            }
         }
 
         private void OnMouseExit()
         {
-            _sr.color = _startColor;
+            if (ActivePlotSetter.ActivePlot != _plotTowerSettings)
+            {
+                ChangeColor(_normalColor);
+            }
+        }
+
+        private void ChangeColor(Color newColor)
+        {
+            _sr.color = newColor;
+        }
+
+        private void CheckActivityPlot(PlotTowerSettings plotTower)
+        {
+            if (ActivePlotSetter.ActivePlot == _plotTowerSettings)
+            {
+                ChangeColor(_selectedColor);
+            }
+            else
+            {
+                ChangeColor(_normalColor);
+            }
         }
     }
 }

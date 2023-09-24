@@ -1,43 +1,27 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class UIMovement : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
+public class UIMovement
 {
-    [SerializeField] private Camera _mainCamera;
+    private Camera _mainCamera;
 
-    public void OnPointerExit(PointerEventData eventData)
+    public UIMovement()
     {
-        Debug.Log("Exit");
+        _mainCamera = Camera.main;
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        Debug.Log("Enter");
-    }
-
-    public void OnPointerDown(PointerEventData data)
-    {
-        Debug.Log("Button pressed!");
-    }
-
-    public void OnPointerUp(PointerEventData data)
-    {
-        Debug.Log("Button released!");
-    }
-
-    public void ReplaceWindow()
+    public void ReplaceWindow(GameObject panel)
     {
         Vector3 mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-        transform.position = new Vector3(mousePosition.x, mousePosition.y, 0f);
+        panel.transform.position = new Vector3(mousePosition.x, mousePosition.y, 0f);
 
         if (mousePosition.y > 0)
         {
-            transform.position += new Vector3(0f, -2.5f, 0f);
+            panel.transform.position += new Vector3(0f, -2.5f, 0f);
         }
         else
         {
-            transform.position += new Vector3(0f, 2.5f, 0f);
+            panel.transform.position += new Vector3(0f, 2.5f, 0f);
         }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TowerDefence;
 using UnityEngine;
 
 public class LevelCreator : MonoBehaviour
@@ -13,7 +14,7 @@ public class LevelCreator : MonoBehaviour
 
     [SerializeField] private Sprite[] _tileSpr = new Sprite[2];
     [SerializeField] private List<GameObject> _wayPoints = new();
-    private GameObject[,] _allCells = new GameObject[12,21];
+    private GameObject[,] _allCells;
 
     private int currWayX, currWayY;
     private GameObject _firstCell;
@@ -24,6 +25,7 @@ public class LevelCreator : MonoBehaviour
 
     private void Awake()
     {
+        _allCells = new GameObject[_fieldHeight, _fieldWidth];
         Instance = this;
     }
 

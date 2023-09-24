@@ -30,30 +30,36 @@ namespace TowerDefence
             EventController.OnUpdateUI.AddListener(SetParamsText);
         }
 
-        public void InitTowerSetting(int range, int speed, int damage)
+        private void InitTowerSetting(TowerItem item)
         {
-            _range = range;
-            _speed = speed;
-            _damage = damage;
+            _range = item.Range;
+            _speed = item.Speed;
+            _damage = item.Damage;
         }
 
-        public void SetButtonsListeners(TowerEconomic towerEconomic)
+        private void SetButtonsListeners(TowerEconomic towerEconomic)
         {
             _updateButton.onClick.AddListener(towerEconomic.UpgradeTower);
+
             _sellButton.onClick.AddListener(towerEconomic.SellTower);
-            _sellButton.onClick.AddListener(() => gameObject.SetActive(false));
+            _sellButton.onClick.AddListener(() => ActivePlotSetter.ActivePlot = null);
         }
 
-        public void RemoveButtonsListeners()
+        private void RemoveButtonsListeners()
         {
             _updateButton.onClick.RemoveAllListeners();
             _sellButton.onClick.RemoveAllListeners();
         }
 
-        public void SetParamsText(TowerEconomic towerEconomic)
+        public void SetParamsText(TowerEconomic towerEconomic, TowerItem item)
         {
+            RemoveButtonsListeners();
+
             _updatePrice.text = towerEconomic.UpgradePrice.ToString();
             _sellPrice.text = towerEconomic.SellPrice.ToString();
+
+            InitTowerSetting(item);
+            SetButtonsListeners(towerEconomic);
 
             _rangeText.text = _range.ToString();
             _speedText.text = _speed.ToString();
