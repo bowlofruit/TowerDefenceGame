@@ -15,9 +15,9 @@ namespace TowerDefence
             _reward = reward;
         }
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(float damage)
         {
-            _health -= damage;
+            _health -= (int)damage;
 
             if (_health <= 0 && !_isDestroyed)
             {

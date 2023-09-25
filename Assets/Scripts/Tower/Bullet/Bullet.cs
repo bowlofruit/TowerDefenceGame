@@ -8,7 +8,7 @@ namespace TowerDefence
         [SerializeField] private Rigidbody2D _rb;
 
         private Action<GameObject> _killAction;
-        private int _speed;
+        private float _speed;
         private int _damage;
         private Transform _target;
 

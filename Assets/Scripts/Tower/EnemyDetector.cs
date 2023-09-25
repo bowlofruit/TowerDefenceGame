@@ -6,7 +6,9 @@ namespace TowerDefence
     public class EnemyDetector : MonoBehaviour
     {
         [SerializeField] private LayerMask _enemyMask;
-        [SerializeField] private int _range;
+        private int _range;
+
+        public int Range { get => _range; set => _range = value; }
 
         public void Init(int range)
         {

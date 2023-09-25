@@ -1,25 +1,27 @@
-using TowerDefence;
 using UnityEngine;
 
-public class TowerBuilder : MonoBehaviour
+namespace TowerDefence
 {
-    public static TowerBuilder Instance;
-
-    [SerializeField] private GameObject[] _towersPrefab;
-    private int _selectedTower = 0;
-
-    private void Awake()
+    public class TowerBuilder : MonoBehaviour
     {
-        Instance = this;
-    }
+        public static TowerBuilder Instance;
 
-    public GameObject GetSelectedTower()
-    {
-        return _towersPrefab[_selectedTower];
-    }
+        [SerializeField] private GameObject[] _towersPrefab;
+        private int _selectedTower = 0;
 
-    public void SetSelectedTower(int index)
-    {
-        _selectedTower = index;
+        private void Awake()
+        {
+            Instance = this;
+        }
+
+        public GameObject GetSelectedTower()
+        {
+            return _towersPrefab[_selectedTower];
+        }
+
+        public void SetSelectedTower(int index)
+        {
+            _selectedTower = index;
+        }
     }
 }

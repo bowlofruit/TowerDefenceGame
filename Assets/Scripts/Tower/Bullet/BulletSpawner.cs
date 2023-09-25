@@ -6,14 +6,17 @@ namespace TowerDefence
     public class BulletSpawner : MonoBehaviour
     {
         [SerializeField] private GameObject _bulletPrefab;
-        [SerializeField] private int _speed;
-        [SerializeField] private int _damage;
+        private int _speed;
+        private int _damage;
 
         [SerializeField] private EnemyDetector _enemyDetector;
 
         private ObjectPool<GameObject> _bulletPool;
         private Transform _target;
         private float _timeUntilFire;
+
+        public int Damage { get => _damage; set => _damage = value; }
+        public int Speed { get => _speed; set => _speed = value; }
 
         public void Init(int speed, int damage)
         {

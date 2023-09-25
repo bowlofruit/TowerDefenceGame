@@ -12,7 +12,7 @@ namespace TowerDefence
         [SerializeField] private EnemyDetector _enemyDetector;
         [SerializeField] private TowerEconomic _towerEconomic;
 
-        public TowerItem Item { get => _item; private set => _item = value; }
+        public TowerItem Item { get => _item; set => _item = value; }
 
         private void Awake()
         {

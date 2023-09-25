@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -3909382211162755478}
   - component: {fileID: -5140465482054429873}
   - component: {fileID: -5495906210824719595}
+  - component: {fileID: -6486844079308226677}
   m_Layer: 0
   m_Name: IceTower
   m_TagString: Untagged
@@ -77,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: -1380163785
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2135585597343286014, guid: 5aa8b770bc43046bc8d993d0d5b7f4a5, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.65647364, a: 1}
+  m_Sprite: {fileID: -1845542204, guid: cf5ab8a536604914c90f6c481f5721d7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101,9 +102,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _item: {fileID: 11400000, guid: 14b2b6cb23fb8114dace697dc7512bee, type: 2}
-  _spawner: {fileID: -2165214741295017642, guid: 36eafa16dde2fa943a9276193ddfd389, type: 3}
-  _enemyDetector: {fileID: 136264406608339511, guid: 36eafa16dde2fa943a9276193ddfd389, type: 3}
-  _towerEconomic: {fileID: -3909382211162755478, guid: 36eafa16dde2fa943a9276193ddfd389, type: 3}
+  _spawner: {fileID: -5140465482054429873}
+  _enemyDetector: {fileID: -5495906210824719595}
+  _towerEconomic: {fileID: -3909382211162755478}
 --- !u!114 &-3909382211162755478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07385b95d0089b84c85bd7ddba10c946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _upgradeTower: {fileID: -6486844079308226677}
+  _bulletSpawner: {fileID: -5140465482054429873}
+  _enemyDetector: {fileID: -5495906210824719595}
 --- !u!114 &-5140465482054429873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,9 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 7067866306174534334, guid: cb4fb3891cbad7241b7967102c537b32, type: 3}
-  _speed: 0
-  _damage: 0
-  _enemyDetector: {fileID: 136264406608339511, guid: 36eafa16dde2fa943a9276193ddfd389, type: 3}
+  _enemyDetector: {fileID: -5495906210824719595}
 --- !u!114 &-5495906210824719595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,4 +149,23 @@ MonoBehaviour:
   _enemyMask:
     serializedVersion: 2
     m_Bits: 64
-  _range: 2
+--- !u!114 &-6486844079308226677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6123562726963342447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be6fdb4bf1ecc8949ab6fbf46046eb5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 6914999836090009523}
+  _updateSprites:
+  - {fileID: -1845542204, guid: cf5ab8a536604914c90f6c481f5721d7, type: 3}
+  - {fileID: 1503357479, guid: cf5ab8a536604914c90f6c481f5721d7, type: 3}
+  - {fileID: 940942769, guid: cf5ab8a536604914c90f6c481f5721d7, type: 3}
+  _upgradeType: 1
+  _enemyDetector: {fileID: -5495906210824719595}
+  _bulletSpawner: {fileID: -5140465482054429873}

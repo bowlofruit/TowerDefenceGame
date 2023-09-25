@@ -8,7 +8,8 @@ namespace TowerDefence
         private bool _isGround;
 
         private TowerEconomic _towerEconomic;
-        private TowerInicializator _towerInicializator;
+        private BulletSpawner _bulletSpawner;
+        private EnemyDetector _enemyDetector;
 
         public GameObject Tower { get => _tower; set => _tower = value; }
         public bool IsGround { get => _isGround; set => _isGround = value; }
@@ -29,9 +30,11 @@ namespace TowerDefence
                         _towerEconomic = _tower.GetComponent<TowerEconomic>();
                         _towerEconomic.BuyTower();
 
-                        _towerInicializator = tower;
+                        EventController.OnUpdateButtonsUI.Invoke(_towerEconomic);
 
-                        EventController.OnUpdateUI.Invoke(_towerEconomic, _towerInicializator.Item);
+                        _bulletSpawner = _tower.GetComponent<BulletSpawner>();
+                        _enemyDetector = _tower.GetComponent<EnemyDetector>();
+                        EventController.OnUpdateInfoUI.Invoke(_enemyDetector.Range, _bulletSpawner.Speed, _bulletSpawner.Damage);
                     }
                     else
                     {
@@ -41,7 +44,7 @@ namespace TowerDefence
             }
             else
             {
-                EventController.OnUpdateUI.Invoke(_towerEconomic, _towerInicializator.Item);
+                EventController.OnUpdateButtonsUI.Invoke(_towerEconomic);
             }
 
             ActivePlotSetter.ActivePlot = this;

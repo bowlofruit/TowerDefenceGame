@@ -4,6 +4,10 @@ namespace TowerDefence
 {
     public class TowerEconomic : MonoBehaviour
     {
+        [SerializeField] private UpgradeTower _upgradeTower;
+        [SerializeField] private BulletSpawner _bulletSpawner;
+        [SerializeField] private EnemyDetector _enemyDetector;
+
         private int _buyPrice;
         private int _sellPrice;
         private int _upgradePrice;
@@ -16,7 +20,7 @@ namespace TowerDefence
         {
             _buyPrice = buyPrice;
             _sellPrice = sellPrice;
-            _upgradePrice = _buyPrice * (int)1.5f;
+            _upgradePrice = (int)(_buyPrice * 1.5f);
         }
 
         public void BuyTower()
@@ -32,14 +36,17 @@ namespace TowerDefence
 
         public void UpgradeTower()
         {
-            if(CanUpgradeTower())
+            if(CanUpgradeTower() && _upgradeTower.TowerUpdate())
             {
                 EventController.OnTowerUpgrade.Invoke(_upgradePrice);
-                _upgradePrice += _buyPrice + _buyPrice / 2;
+                _upgradePrice += (int)(_upgradePrice * 1.5f);
+                _sellPrice += (int)(_sellPrice * 1.2f);
+                EventController.OnUpdateButtonsUI.Invoke(this);
+                EventController.OnUpdateInfoUI.Invoke(_enemyDetector.Range, _bulletSpawner.Speed, _bulletSpawner.Damage);
             }
             else
             {
-                Debug.Log("Not enough coins to upgrade this tower.");
+                Debug.Log("Can't update tower");
             }
         }
 
