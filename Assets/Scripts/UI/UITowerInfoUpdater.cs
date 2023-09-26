@@ -24,7 +24,7 @@ namespace TowerDefence
             EventController.OnUpdateInfoUI.AddListener(SetTowerInfoText);
         }
 
-        private void SetParamsText(TowerEconomic towerEconomic)
+        private void SetParamsText(TowerController towerEconomic)
         {
             RemoveButtonsListeners();
             SetButtonsListeners(towerEconomic);
@@ -40,7 +40,7 @@ namespace TowerDefence
             _damageText.text = damage.ToString();
         }
 
-        private void SetButtonsListeners(TowerEconomic towerEconomic)
+        private void SetButtonsListeners(TowerController towerEconomic)
         {
             _updateButton.onClick.AddListener(towerEconomic.UpgradeTower);
             _sellButton.onClick.AddListener(towerEconomic.SellTower);

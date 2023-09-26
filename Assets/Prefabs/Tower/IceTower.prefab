@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5757907506418182085}
   - component: {fileID: 6914999836090009523}
-  - component: {fileID: 2035468715980772145}
-  - component: {fileID: -3909382211162755478}
+  - component: {fileID: 8998994671300266956}
   - component: {fileID: -5140465482054429873}
   - component: {fileID: -5495906210824719595}
   - component: {fileID: -6486844079308226677}
@@ -78,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -1380163785
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1845542204, guid: cf5ab8a536604914c90f6c481f5721d7, type: 3}
+  m_Sprite: {fileID: -1067509695, guid: de367e2bbf34e4045a3366e6732dac79, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -89,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2035468715980772145
+--- !u!114 &8998994671300266956
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,25 +97,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6123562726963342447}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ba61b5923928e54ab35ad8d046abddb, type: 3}
+  m_Script: {fileID: 11500000, guid: a20a0fd7fb7862d4d95da2f4010e6164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _item: {fileID: 11400000, guid: 14b2b6cb23fb8114dace697dc7512bee, type: 2}
-  _spawner: {fileID: -5140465482054429873}
-  _enemyDetector: {fileID: -5495906210824719595}
-  _towerEconomic: {fileID: -3909382211162755478}
---- !u!114 &-3909382211162755478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6123562726963342447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07385b95d0089b84c85bd7ddba10c946, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   _upgradeTower: {fileID: -6486844079308226677}
   _bulletSpawner: {fileID: -5140465482054429873}
   _enemyDetector: {fileID: -5495906210824719595}
@@ -132,8 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668bcaebb0728e146b6ca3ef8065c54d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 7067866306174534334, guid: cb4fb3891cbad7241b7967102c537b32, type: 3}
-  _enemyDetector: {fileID: -5495906210824719595}
+  _bulletPrefab: {fileID: 8615515295008936967, guid: cb4fb3891cbad7241b7967102c537b32, type: 3}
+  _sprite: {fileID: 0}
 --- !u!114 &-5495906210824719595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,9 +147,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 6914999836090009523}
   _updateSprites:
-  - {fileID: -1845542204, guid: cf5ab8a536604914c90f6c481f5721d7, type: 3}
-  - {fileID: 1503357479, guid: cf5ab8a536604914c90f6c481f5721d7, type: 3}
-  - {fileID: 940942769, guid: cf5ab8a536604914c90f6c481f5721d7, type: 3}
+  - {fileID: -1067509695, guid: de367e2bbf34e4045a3366e6732dac79, type: 3}
+  - {fileID: -708794343, guid: de367e2bbf34e4045a3366e6732dac79, type: 3}
+  - {fileID: -26550374, guid: de367e2bbf34e4045a3366e6732dac79, type: 3}
   _upgradeType: 1
   _enemyDetector: {fileID: -5495906210824719595}
   _bulletSpawner: {fileID: -5140465482054429873}

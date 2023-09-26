@@ -5,39 +5,41 @@ namespace TowerDefence
 {
     public class BulletSpawner : MonoBehaviour
     {
-        [SerializeField] private GameObject _bulletPrefab;
+        [SerializeField] private Bullet _bulletPrefab;
+        [SerializeField] private Sprite _sprite;
         private int _speed;
         private int _damage;
 
-        [SerializeField] private EnemyDetector _enemyDetector;
+        private EnemyDetector _detector;
 
-        private ObjectPool<GameObject> _bulletPool;
+        private ObjectPool<Bullet> _bulletPool;
         private Transform _target;
         private float _timeUntilFire;
 
         public int Damage { get => _damage; set => _damage = value; }
         public int Speed { get => _speed; set => _speed = value; }
 
-        public void Init(int speed, int damage)
+        public void Init(int speed, int damage, EnemyDetector enemyDetector)
         {
             _speed = speed;
             _damage = damage;
+            _detector = enemyDetector;
         }
 
         private void Start()
         {
-            _bulletPool = new ObjectPool<GameObject>(() =>
+            _bulletPool = new ObjectPool<Bullet>(() =>
             {
                 return Instantiate(_bulletPrefab);
             }, bullet =>
             {
-                bullet.SetActive(true);
+                bullet.gameObject.SetActive(true);
             }, bullet =>
             {
-                bullet.SetActive(false);
+                bullet.gameObject.SetActive(false);
             }, bullet =>
             {
-                Destroy(bullet);
+                Destroy(bullet.gameObject);
             }, false, 10, 20);
         }
 
@@ -45,11 +47,11 @@ namespace TowerDefence
         {
             if (_target == null)
             {
-                _target = _enemyDetector.FindTarget();
+                _target = _detector.FindTarget();
                 return;
             }
 
-            if (_enemyDetector.IsInRange(_target))
+            if (_detector.IsInRange(_target))
             {
                 _timeUntilFire += Time.deltaTime;
 
@@ -69,13 +71,11 @@ namespace TowerDefence
         {
             var bulletPrefab = _bulletPool.Get();
             bulletPrefab.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
-
-            var bulletComponent = bulletPrefab.GetComponent<Bullet>();
-            bulletComponent.SetTarget(_target);
-            bulletComponent.InitParams(KillBullet, _speed, _damage);
+            bulletPrefab.SetTarget(_target);
+            bulletPrefab.InitParams(KillBullet, _speed, _damage);
         }
 
-        private void KillBullet(GameObject bullet)
+        private void KillBullet(Bullet bullet)
         {
             _bulletPool.Release(bullet);
         }

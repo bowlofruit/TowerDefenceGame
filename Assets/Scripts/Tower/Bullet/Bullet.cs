@@ -7,12 +7,12 @@ namespace TowerDefence
     {
         [SerializeField] private Rigidbody2D _rb;
 
-        private Action<GameObject> _killAction;
+        private Action<Bullet> _killAction;
         private float _speed;
         private int _damage;
         private Transform _target;
 
-        public void InitParams(Action<GameObject> killAction, int speed, int damage)
+        public void InitParams(Action<Bullet> killAction, int speed, int damage)
         {
             _killAction = killAction;
             _speed = speed;
@@ -26,7 +26,7 @@ namespace TowerDefence
 
         private void FixedUpdate()
         {
-            if (!_target) 
+            if (!_target)
             {
                 Destroy(gameObject);
                 return;
@@ -34,15 +34,19 @@ namespace TowerDefence
 
             Vector2 dir = (_target.position - transform.position).normalized;
 
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + -90));
+
             _rb.velocity = dir * _speed * 3;
         }
+
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.TryGetComponent(out EnemyDeath enemy))
             {
                 enemy.TakeDamage(_damage);
-                _killAction.Invoke(this.gameObject);
+                _killAction.Invoke(this);
             }
         }
     }

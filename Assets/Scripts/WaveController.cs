@@ -56,8 +56,7 @@ namespace TowerDefence
         {
             GameObject prefabToSpawn = _waveConfig.EnemyPrefabs[_enemyCounter];
             _enemyCounter = (_enemyCounter + 1)%_waveConfig.EnemyPrefabs.Length;
-            Instantiate(prefabToSpawn, LevelCreator.Instance.WayPoints[0].transform.position, Quaternion.identity, transform);
-            
+            Instantiate(prefabToSpawn, LevelCreator.Instance.WayPoints[0].transform.position, Quaternion.identity, transform);            
         }
 
         private int EnemiesPerWave()

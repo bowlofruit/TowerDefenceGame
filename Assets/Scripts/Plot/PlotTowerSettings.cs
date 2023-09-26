@@ -4,14 +4,10 @@ namespace TowerDefence
 {
     public class PlotTowerSettings : MonoBehaviour
     {
-        private GameObject _tower;
+        private TowerController _tower;
         private bool _isGround;
 
-        private TowerEconomic _towerEconomic;
-        private BulletSpawner _bulletSpawner;
-        private EnemyDetector _enemyDetector;
-
-        public GameObject Tower { get => _tower; set => _tower = value; }
+        public TowerController Tower { get => _tower; set => _tower = value; }
         public bool IsGround { get => _isGround; set => _isGround = value; }
 
         private void OnMouseDown()
@@ -21,20 +17,12 @@ namespace TowerDefence
             if (_tower == null)
             {
                 GameObject towerToBuild = TowerBuilder.Instance.GetSelectedTower();
-                if (towerToBuild.TryGetComponent(out TowerInicializator tower))
+                if (towerToBuild.TryGetComponent(out TowerController tower))
                 {
-                    if (tower.Item.BuyPrice <= CoinsController.Instance.Coins)
+                    if (tower.CanBuyTower())
                     {
-                        _tower = Instantiate(towerToBuild, transform.position, Quaternion.identity);
-
-                        _towerEconomic = _tower.GetComponent<TowerEconomic>();
-                        _towerEconomic.BuyTower();
-
-                        EventController.OnUpdateButtonsUI.Invoke(_towerEconomic);
-
-                        _bulletSpawner = _tower.GetComponent<BulletSpawner>();
-                        _enemyDetector = _tower.GetComponent<EnemyDetector>();
-                        EventController.OnUpdateInfoUI.Invoke(_enemyDetector.Range, _bulletSpawner.Speed, _bulletSpawner.Damage);
+                        _tower = Instantiate(tower, transform.position, Quaternion.identity);
+                        _tower.BuyTower();
                     }
                     else
                     {
@@ -44,7 +32,7 @@ namespace TowerDefence
             }
             else
             {
-                EventController.OnUpdateButtonsUI.Invoke(_towerEconomic);
+                EventController.OnUpdateButtonsUI.Invoke(Tower);
             }
 
             ActivePlotSetter.ActivePlot = this;
