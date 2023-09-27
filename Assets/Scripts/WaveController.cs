@@ -17,9 +17,12 @@ namespace TowerDefence
         private float _timeBetweenWaves = 3f;
         private int _enemyCounter = 0;
 
+        private bool _isGameOver;
+
         private void Awake()
         {
             EventController.OnEnemyDestroy.AddListener(EnemyDestroyed);
+            EventController.OnGameOver.AddListener(() => { _isGameOver = true; });
         }
 
         private void Start()
@@ -29,7 +32,13 @@ namespace TowerDefence
 
         private void Update()
         {
-            if (!_isSpawning || _currentWave > _waveConfig.NumberOfWaves) return;
+            if (!_isSpawning || _isGameOver) return;
+
+            if(_currentWave > _waveConfig.NumberOfWaves)
+            {
+                EventController.OnLevelCompelete.Invoke();
+                return;
+            }
 
             _timeSinceLastSpawn += Time.deltaTime;
 
@@ -55,7 +64,6 @@ namespace TowerDefence
         private void SpawnEnemy()
         {
             GameObject prefabToSpawn = _waveConfig.EnemyPrefabs[_enemyCounter];
-            _enemyCounter = (_enemyCounter + 1)%_waveConfig.EnemyPrefabs.Length;
             Instantiate(prefabToSpawn, LevelCreator.Instance.WayPoints[0].transform.position, Quaternion.identity, transform);            
         }
 
@@ -73,11 +81,15 @@ namespace TowerDefence
         }
 
         private void EndWave()
-        {
-            _isSpawning = false;
+        {        
             _currentWave++;
-            _waveCounter.text = $"Wave {_currentWave}/{_waveConfig.NumberOfWaves}";
-            StartCoroutine(StartWave());
+
+            if (_currentWave <= _waveConfig.NumberOfWaves)
+            {
+                _isSpawning = false;
+                _waveCounter.text = $"Wave {_currentWave}/{_waveConfig.NumberOfWaves}";
+                StartCoroutine(StartWave());
+            }
         }
     }
 }

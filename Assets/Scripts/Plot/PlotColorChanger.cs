@@ -5,16 +5,15 @@ namespace TowerDefence
     public class PlotColorChanger : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer _sr;
+        [SerializeField] private PlotTowerSettings _plotTowerSettings;
+
         [SerializeField] private Color _hoverColor;
         [SerializeField] private Color _selectedColor;
-
         private Color _normalColor;
-        private PlotTowerSettings _plotTowerSettings;
 
         private void Start()
         {
             _normalColor = _sr.color;
-            _plotTowerSettings = GetComponent<PlotTowerSettings>();
             EventController.OnPlotSelected.AddListener(CheckActivityPlot);
         }
 

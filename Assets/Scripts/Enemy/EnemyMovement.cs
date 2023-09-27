@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace TowerDefence
@@ -7,6 +6,7 @@ namespace TowerDefence
     {
         [SerializeField] private Rigidbody2D _rb;
         private float _moveSpeed;
+        private int _castleDamage;
 
         private Transform _targetPathPoint;
         private int _pathIndex;
@@ -16,9 +16,15 @@ namespace TowerDefence
             _targetPathPoint = LevelCreator.Instance.WayPoints[0].transform;
         }
 
-        public void InitParams(float moveSpeed)
+        public void SlowSpeed(float speed)
+        {
+            _moveSpeed -= speed;
+        }
+
+        public void InitParams(float moveSpeed, int castleDamage)
         {
             _moveSpeed = moveSpeed;
+            _castleDamage = castleDamage;
         }
 
         private void Update()
@@ -29,6 +35,7 @@ namespace TowerDefence
 
                 if (_pathIndex == LevelCreator.Instance.WayPoints.Count)
                 {
+                    EventController.OnCastleTakeDamage.Invoke(_castleDamage);
                     EventController.OnEnemyDestroy.Invoke();
                     Destroy(gameObject);
                     return;

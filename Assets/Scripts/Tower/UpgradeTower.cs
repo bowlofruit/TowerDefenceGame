@@ -8,10 +8,16 @@ namespace TowerDefence
         [SerializeField] private Sprite[] _updateSprites;
         [SerializeField] private UpgradeType _upgradeType;
 
-        [SerializeField] private EnemyDetector _enemyDetector;
-        [SerializeField] private BulletSpawner _bulletSpawner;
+        private EnemyDetector _enemyDetector;
+        private BulletSpawner _bulletSpawner;
 
         private int _updateCount = 0;
+
+        public void Init(EnemyDetector enemyDetector, BulletSpawner bulletSpawner)
+        {
+            _enemyDetector = enemyDetector;
+            _bulletSpawner = bulletSpawner;
+        }
 
         public bool TowerUpdate()
         {

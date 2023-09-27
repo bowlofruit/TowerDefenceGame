@@ -7,6 +7,8 @@ namespace TowerDefence
     {
         [SerializeField] private Bullet _bulletPrefab;
         [SerializeField] private Sprite _sprite;
+
+        [SerializeField] private float _explosionRadius;
         private int _speed;
         private int _damage;
 
@@ -72,7 +74,7 @@ namespace TowerDefence
             var bulletPrefab = _bulletPool.Get();
             bulletPrefab.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
             bulletPrefab.SetTarget(_target);
-            bulletPrefab.InitParams(KillBullet, _speed, _damage);
+            bulletPrefab.InitParams(KillBullet, _speed, _damage, _explosionRadius);
         }
 
         private void KillBullet(Bullet bullet)

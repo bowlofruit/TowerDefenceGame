@@ -24,10 +24,36 @@ namespace TowerDefence
             }
         }
 
+        public int Speed
+        {
+            get
+            {
+                return _bulletSpawner.Speed;
+            }
+            set
+            {
+                _bulletSpawner.Speed = value;
+            }
+        }
+
+        public int Damage
+        {
+            get
+            {
+                return _bulletSpawner.Damage;
+            }
+            set
+            {
+                _bulletSpawner.Damage = value;
+            }
+        }
+
         private void Awake()
         {
             _enemyDetector.Init(_item.Range);
             _bulletSpawner.Init(_item.Speed, _item.Damage, _enemyDetector);
+            _upgradeTower.Init(_enemyDetector, _bulletSpawner);
+
             BuyPrice = _item.BuyPrice;
             SellPrice = _item.SellPrice;
             UpgradePrice = (int)(BuyPrice * 1.5f);
@@ -64,7 +90,7 @@ namespace TowerDefence
         private void UpdateUI()
         {
             EventController.OnUpdateButtonsUI.Invoke(this);
-            EventController.OnUpdateInfoUI.Invoke(_enemyDetector.Range, _bulletSpawner.Speed, _bulletSpawner.Damage);
+            EventController.OnUpdateInfoUI.Invoke(Range, Speed, Damage);
         }
 
         public bool CanBuyTower()

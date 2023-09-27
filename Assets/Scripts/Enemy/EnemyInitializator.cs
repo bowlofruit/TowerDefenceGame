@@ -1,15 +1,18 @@
-using TowerDefence;
 using UnityEngine;
 
-public class EnemyInitializator : MonoBehaviour
+namespace TowerDefence
 {
-    [SerializeField] private EnemyItem _item;
-    [SerializeField] private EnemyDeath _enemyDeath;
-    [SerializeField] private EnemyMovement _enemyMovement;
-
-    private void Awake()
+    public class EnemyInitializator : MonoBehaviour
     {
-        _enemyDeath.InitParams(_item.Health, _item.Reward);
-        _enemyMovement.InitParams(_item.Speed);
+        [SerializeField] private EnemyItem _item;
+
+        [SerializeField] private EnemyDeath _enemyDeath;
+        [SerializeField] private EnemyMovement _enemyMovement;
+
+        private void Awake()
+        {
+            _enemyDeath.InitParams(_item.Health, _item.Reward);
+            _enemyMovement.InitParams(_item.Speed, _item.Damage);
+        }
     }
 }

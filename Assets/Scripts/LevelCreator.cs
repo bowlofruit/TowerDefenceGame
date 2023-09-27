@@ -34,6 +34,7 @@ public class LevelCreator : MonoBehaviour
         _sprSize = new Vector2(_sellSpr.bounds.size.x, _sellSpr.bounds.size.y);
         CreateLevel(1);
         LoadWaypoints();
+        GetComponent<CastleController>().InitCastle(WayPoints[^1].transform);
     }
 
     private void CreateLevel(int level)

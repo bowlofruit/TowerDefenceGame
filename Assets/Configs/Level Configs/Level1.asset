@@ -17,7 +17,7 @@ MonoBehaviour:
   - {fileID: 543051197213829668, guid: faa8f22f9f526f74180862d759be0f88, type: 3}
   - {fileID: 543051197213829668, guid: 6067e8fedefea184d9286782c77b373a, type: 3}
   _numberOfWaves: 5
-  _spawnInterval: 0.68
+  _spawnInterval: 3.73
   _difficultScalingFactor: 0.5
   _numberOfEnemies: 6
   _startCoins: 100

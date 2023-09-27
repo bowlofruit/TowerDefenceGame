@@ -34,8 +34,8 @@ namespace TowerDefence
 
         private void OnDrawGizmos()
         {
-            Handles.color = Color.green;
-            Handles.DrawWireDisc(transform.position, transform.forward, _range);
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position, _range);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace TowerDefence
     {
         [SerializeField] private GameObject[] _enemyPrefabs;
         [SerializeField] private int _numberOfWaves;
-        [SerializeField][Range(0.5f, 3f)] private float _spawnInterval;
+        [SerializeField][Range(1f, 5f)] private float _spawnInterval;
         [SerializeField] private float _difficultScalingFactor;
         [SerializeField] private int _numberOfEnemies;
         [SerializeField] private int _startCoins;

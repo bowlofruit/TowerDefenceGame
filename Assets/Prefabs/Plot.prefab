@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sr: {fileID: 2015733310483488695}
+  _plotTowerSettings: {fileID: 4058828397302240424}
   _hoverColor: {r: 0.7735849, g: 0.5284263, b: 0.14231044, a: 1}
   _selectedColor: {r: 0.46226418, g: 0.27558059, b: 0, a: 1}
 --- !u!114 &4058828397302240424
