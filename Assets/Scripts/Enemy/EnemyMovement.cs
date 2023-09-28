@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace TowerDefence
@@ -6,6 +7,8 @@ namespace TowerDefence
     {
         [SerializeField] private Rigidbody2D _rb;
         private float _moveSpeed;
+
+        private float _originalSpeed;
         private int _castleDamage;
 
         private Transform _targetPathPoint;
@@ -13,12 +16,14 @@ namespace TowerDefence
 
         private void Start()
         {
+            _originalSpeed = _moveSpeed;
             _targetPathPoint = LevelCreator.Instance.WayPoints[0].transform;
         }
 
-        public void SlowSpeed(float speed)
+        public void ChangeSpeed(float speedScalingFactor, int freezzeTime)
         {
-            _moveSpeed -= speed;
+            _moveSpeed *= speedScalingFactor;
+            StartCoroutine(ResetEnemySpeed(freezzeTime));
         }
 
         public void InitParams(float moveSpeed, int castleDamage)
@@ -51,6 +56,13 @@ namespace TowerDefence
         {
             Vector2 dir = (_targetPathPoint.position - transform.position).normalized;
             _rb.velocity = dir * _moveSpeed;
+        }
+
+        private IEnumerator ResetEnemySpeed(int frezzyTime)
+        {
+            yield return new WaitForSeconds(frezzyTime);
+
+            _moveSpeed = _originalSpeed;
         }
     }
 }

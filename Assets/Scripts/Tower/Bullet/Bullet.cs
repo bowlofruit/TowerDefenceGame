@@ -7,18 +7,18 @@ namespace TowerDefence
     {
         [SerializeField] private Rigidbody2D _rb;
 
-        private Action<Bullet> _killAction;
+        protected Action<Bullet> _killAction;
         private float _speed;
-        private float _explosionRadius;
         private int _damage;
         private Transform _target;
 
-        public void InitParams(Action<Bullet> killAction, int speed, int damage, float explosionRadius)
+        public int Damage { get => _damage; set => _damage = value; }
+
+        public void InitParams(Action<Bullet> killAction, int speed, int damage)
         {
             _killAction = killAction;
             _speed = speed;
             _damage = damage;
-            _explosionRadius = explosionRadius;
         }
 
         public void SetTarget(Transform target)
@@ -40,31 +40,6 @@ namespace TowerDefence
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + -90));
 
             _rb.velocity = dir * _speed * 3;
-        }
-
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (collision.gameObject.TryGetComponent(out EnemyDeath enemy))
-            {
-                Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _explosionRadius);
-
-                foreach (Collider2D collider in colliders)
-                {
-                    if(collider.gameObject.TryGetComponent(out EnemyDeath nearEnemy))
-                    {
-                        nearEnemy.TakeDamage(_damage);
-                    }
-                }
-
-                _killAction.Invoke(this);
-                Destroy(gameObject);
-            }
-        }
-
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, _explosionRadius);
         }
     }
 }

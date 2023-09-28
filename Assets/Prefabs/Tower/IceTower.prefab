@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: -5140465482054429873}
   - component: {fileID: -5495906210824719595}
   - component: {fileID: -6486844079308226677}
-  - component: {fileID: 1098874760217433701}
   m_Layer: 0
   m_Name: IceTower
   m_TagString: Untagged
@@ -117,9 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668bcaebb0728e146b6ca3ef8065c54d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 8615515295008936967, guid: cb4fb3891cbad7241b7967102c537b32, type: 3}
+  _bulletPrefab: {fileID: 3746294410423784323, guid: c40a91adb23191d41b645c5b6917ad65, type: 3}
   _sprite: {fileID: 0}
-  _explosionRadius: 0
 --- !u!114 &-5495906210824719595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,16 +151,3 @@ MonoBehaviour:
   - {fileID: -708794343, guid: de367e2bbf34e4045a3366e6732dac79, type: 3}
   - {fileID: -26550374, guid: de367e2bbf34e4045a3366e6732dac79, type: 3}
   _upgradeType: 1
---- !u!114 &1098874760217433701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6123562726963342447}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1a40dcfb508ed745bd529c9d1ff2951, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speedSlow: 1.2

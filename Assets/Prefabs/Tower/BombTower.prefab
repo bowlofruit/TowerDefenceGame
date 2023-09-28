@@ -104,7 +104,6 @@ MonoBehaviour:
   _upgradeTower: {fileID: 3329736648771367826}
   _bulletSpawner: {fileID: 3112156193654426644}
   _enemyDetector: {fileID: -4240160954364151841}
-  _enemySlower: {fileID: 0}
 --- !u!114 &3112156193654426644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,9 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668bcaebb0728e146b6ca3ef8065c54d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 8615515295008936967, guid: cb4fb3891cbad7241b7967102c537b32, type: 3}
+  _bulletPrefab: {fileID: 5693414141832157263, guid: 47575bcb13d05bc4cbf64383b326bf20, type: 3}
   _sprite: {fileID: 0}
-  _explosionRadius: 3
 --- !u!114 &-4240160954364151841
 MonoBehaviour:
   m_ObjectHideFlags: 0

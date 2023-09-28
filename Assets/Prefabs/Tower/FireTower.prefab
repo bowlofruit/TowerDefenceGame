@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668bcaebb0728e146b6ca3ef8065c54d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 8615515295008936967, guid: cb4fb3891cbad7241b7967102c537b32, type: 3}
+  _bulletPrefab: {fileID: 3783785889251461211, guid: cb4fb3891cbad7241b7967102c537b32, type: 3}
   _sprite: {fileID: 782048700, guid: 58a7fb0499f377c469f88eff401a3a0a, type: 3}
   _explosionRadius: 0.3
 --- !u!114 &136264406608339511
