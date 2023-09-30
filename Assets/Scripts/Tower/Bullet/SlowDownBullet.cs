@@ -9,12 +9,11 @@ namespace TowerDefence
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.TryGetComponent(out EnemyDeath enemy) && collision.gameObject.TryGetComponent(out EnemyMovement movement))
+            if (collision.gameObject.TryGetComponent(out EnemyController enemy) && collision.gameObject.TryGetComponent(out EnemyMovement movement))
             {
                 movement.ChangeSpeed(_speedScalingFactor, _stopTimer);
                 enemy.TakeDamage(5);
-                _killAction.Invoke(this);
-                Destroy(gameObject);
+                KillAction.Invoke(this);
             }
         }
     }

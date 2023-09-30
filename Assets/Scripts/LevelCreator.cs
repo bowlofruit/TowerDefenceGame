@@ -67,7 +67,7 @@ public class LevelCreator : MonoBehaviour
 
         tmpCell.transform.position = cellPosition;
 
-        _allCells[y,x] = tmpCell;
+        _allCells[y, x] = tmpCell;
 
         if (isGround)
         {

@@ -19,7 +19,7 @@ namespace TowerDefence
 
         private void OnMouseEnter()
         {
-            if(ActivePlotSetter.ActivePlot != _plotTowerSettings)
+            if (ActivePlotSetter.ActivePlot != _plotTowerSettings)
             {
                 ChangeColor(_hoverColor);
             }

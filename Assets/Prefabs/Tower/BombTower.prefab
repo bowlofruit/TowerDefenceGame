@@ -150,4 +150,4 @@ MonoBehaviour:
   - {fileID: -362084616, guid: 3ef820e6e8a2c6a4ca2aaca84ae7e973, type: 3}
   - {fileID: -535187754, guid: 3ef820e6e8a2c6a4ca2aaca84ae7e973, type: 3}
   - {fileID: -64248208, guid: 3ef820e6e8a2c6a4ca2aaca84ae7e973, type: 3}
-  _upgradeType: 2
+  _upgradeType: 0

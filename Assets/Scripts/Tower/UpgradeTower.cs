@@ -2,6 +2,13 @@ using UnityEngine;
 
 namespace TowerDefence
 {
+    public enum UpgradeType
+    {
+        Damage,
+        Range,
+        ShootSpeed
+    }
+
     public class UpgradeTower : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer _spriteRenderer;
@@ -13,6 +20,8 @@ namespace TowerDefence
 
         private int _updateCount = 0;
 
+        private const int MaxUpgrades = 2;
+
         public void Init(EnemyDetector enemyDetector, BulletSpawner bulletSpawner)
         {
             _enemyDetector = enemyDetector;
@@ -21,25 +30,39 @@ namespace TowerDefence
 
         public bool TowerUpdate()
         {
-            if (_updateCount == 2) return false;
+            if (_updateCount >= MaxUpgrades)
+            {
+                return false;
+            }
 
-            if (_upgradeType == UpgradeType.Damage)
-            {
-                _bulletSpawner.Damage += _bulletSpawner.Damage + _bulletSpawner.Damage / 2;
-            }
-            else if (_upgradeType == UpgradeType.Range)
-            {
-                _enemyDetector.Range += _enemyDetector.Range + _enemyDetector.Range / 2;
-            }
-            else if (_upgradeType == UpgradeType.ShootSpeed)
-            {
-                _bulletSpawner.Speed += _bulletSpawner.Speed + _bulletSpawner.Speed / 2;
-            }
-            
+            ApplyUpgrade();
             _updateCount++;
             _spriteRenderer.sprite = _updateSprites[_updateCount];
 
             return true;
+        }
+
+        private void ApplyUpgrade()
+        {
+            switch (_upgradeType)
+            {
+                case UpgradeType.Damage:
+                    _bulletSpawner.Damage *= 1.3f;
+                    break;
+
+                case UpgradeType.Range:
+                    _enemyDetector.Range *= 1.1f;
+                    break;
+
+                case UpgradeType.ShootSpeed:
+                    _bulletSpawner.Speed *= 1.15f;
+                    break;
+            }
+
+            if (_updateCount == 1)
+            {
+                _bulletSpawner.IsUpgrade = true;
+            }
         }
     }
 }

@@ -2,13 +2,6 @@ using UnityEngine;
 
 namespace TowerDefence
 {
-    public enum UpgradeType
-    {
-        Damage,
-        Range,
-        ShootSpeed
-    }
-
     [CreateAssetMenu(fileName = "Tower", menuName = "Towers/Create Tower")]
     public class TowerItem : ScriptableObject
     {

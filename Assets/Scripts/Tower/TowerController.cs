@@ -12,7 +12,7 @@ namespace TowerDefence
         public int BuyPrice { get; private set; }
         public int SellPrice { get; private set; }
         public int UpgradePrice { get; private set; }
-        public int Range
+        public float Range
         {
             get
             {
@@ -24,7 +24,7 @@ namespace TowerDefence
             }
         }
 
-        public int Speed
+        public float Speed
         {
             get
             {
@@ -36,7 +36,7 @@ namespace TowerDefence
             }
         }
 
-        public int Damage
+        public float Damage
         {
             get
             {
@@ -73,7 +73,7 @@ namespace TowerDefence
 
         public void UpgradeTower()
         {
-            if(CanUpgradeTower() && _upgradeTower.TowerUpdate())
+            if (CanUpgradeTower() && _upgradeTower.TowerUpdate())
             {
                 EventController.OnTowerUpgrade.Invoke(UpgradePrice);
 

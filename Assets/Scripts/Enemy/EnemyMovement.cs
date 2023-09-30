@@ -26,7 +26,7 @@ namespace TowerDefence
             StartCoroutine(ResetEnemySpeed(freezzeTime));
         }
 
-        public void InitParams(float moveSpeed, int castleDamage)
+        public void Init(float moveSpeed, int castleDamage)
         {
             _moveSpeed = moveSpeed;
             _castleDamage = castleDamage;

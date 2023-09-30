@@ -162,3 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: -3195403045318340957}
+  _periodicDamageInterval: 2
+  _periodicDamageAmount: 5
+  _periodicDamageRate: 0.5
+  _bulletSprite: {fileID: 198542880671368934}

@@ -7,18 +7,19 @@ namespace TowerDefence
     {
         [SerializeField] private Rigidbody2D _rb;
 
-        protected Action<Bullet> _killAction;
+        protected Action<Bullet> KillAction { get; set; }
         private float _speed;
-        private int _damage;
         private Transform _target;
+        protected bool _isUpgrade;
 
-        public int Damage { get => _damage; set => _damage = value; }
+        public float Damage { get; set; }
 
-        public void InitParams(Action<Bullet> killAction, int speed, int damage)
+        public void InitParams(Action<Bullet> killAction, float speed, float damage, bool isUpgrade)
         {
-            _killAction = killAction;
+            KillAction = killAction;
             _speed = speed;
-            _damage = damage;
+            Damage = damage;
+            _isUpgrade = isUpgrade;
         }
 
         public void SetTarget(Transform target)

@@ -7,9 +7,7 @@ namespace TowerDefence
     {
         [SerializeField] private Bullet _bulletPrefab;
         [SerializeField] private Sprite _sprite;
-
-        private int _speed;
-        private int _damage;
+        private bool _isUpgrade = false;
 
         private EnemyDetector _detector;
 
@@ -17,13 +15,14 @@ namespace TowerDefence
         private Transform _target;
         private float _timeUntilFire;
 
-        public int Damage { get => _damage; set => _damage = value; }
-        public int Speed { get => _speed; set => _speed = value; }
+        public float Damage { get; set; }
+        public float Speed { get; set; }
+        public bool IsUpgrade { get => _isUpgrade; set => _isUpgrade = value; }
 
         public void Init(int speed, int damage, EnemyDetector enemyDetector)
         {
-            _speed = speed;
-            _damage = damage;
+            Speed = speed;
+            Damage = damage;
             _detector = enemyDetector;
         }
 
@@ -56,7 +55,7 @@ namespace TowerDefence
             {
                 _timeUntilFire += Time.deltaTime;
 
-                if (_timeUntilFire >= 1f / _speed)
+                if (_timeUntilFire >= 1f / Speed)
                 {
                     Shoot();
                     _timeUntilFire = 0f;
@@ -73,7 +72,7 @@ namespace TowerDefence
             var bulletPrefab = _bulletPool.Get();
             bulletPrefab.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
             bulletPrefab.SetTarget(_target);
-            bulletPrefab.InitParams(KillBullet, _speed, _damage);
+            bulletPrefab.InitParams(KillBullet, Speed, Damage, _isUpgrade);
         }
 
         private void KillBullet(Bullet bullet)

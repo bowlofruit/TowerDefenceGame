@@ -34,7 +34,7 @@ namespace TowerDefence
         {
             if (!_isSpawning || _isGameOver) return;
 
-            if(_currentWave > _waveConfig.NumberOfWaves)
+            if (_currentWave > _waveConfig.NumberOfWaves)
             {
                 EventController.OnLevelCompelete.Invoke();
                 return;
@@ -64,7 +64,7 @@ namespace TowerDefence
         private void SpawnEnemy()
         {
             GameObject prefabToSpawn = _waveConfig.EnemyPrefabs[_enemyCounter];
-            Instantiate(prefabToSpawn, LevelCreator.Instance.WayPoints[0].transform.position, Quaternion.identity, transform);            
+            Instantiate(prefabToSpawn, LevelCreator.Instance.WayPoints[0].transform.position, Quaternion.identity, transform);
         }
 
         private int EnemiesPerWave()
@@ -81,7 +81,7 @@ namespace TowerDefence
         }
 
         private void EndWave()
-        {        
+        {
             _currentWave++;
 
             if (_currentWave <= _waveConfig.NumberOfWaves)

@@ -33,7 +33,7 @@ namespace TowerDefence
             _sellPrice.text = towerEconomic.SellPrice.ToString();
         }
 
-        private void SetTowerInfoText(int range, int speed, int damage)
+        private void SetTowerInfoText(float range, float speed, float damage)
         {
             _rangeText.text = range.ToString();
             _speedText.text = speed.ToString();
