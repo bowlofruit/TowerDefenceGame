@@ -33,6 +33,7 @@ namespace TowerDefence
             else
             {
                 EventController.OnUpdateButtonsUI.Invoke(Tower);
+                EventController.OnUpdateInfoUI.Invoke(Tower.Range, Tower.Speed, Tower.Damage);
             }
 
             ActivePlotSetter.ActivePlot = this;

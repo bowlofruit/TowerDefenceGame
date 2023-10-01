@@ -35,9 +35,9 @@ namespace TowerDefence
 
         private void SetTowerInfoText(float range, float speed, float damage)
         {
-            _rangeText.text = range.ToString();
-            _speedText.text = speed.ToString();
-            _damageText.text = damage.ToString();
+            _rangeText.text = (range * 10).ToString();
+            _speedText.text = (speed * 10).ToString();
+            _damageText.text = (damage * 10).ToString();
         }
 
         private void SetButtonsListeners(TowerController towerEconomic)

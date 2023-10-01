@@ -12,7 +12,7 @@ namespace TowerDefence
             if (collision.gameObject.TryGetComponent(out EnemyController enemy) && collision.gameObject.TryGetComponent(out EnemyMovement movement))
             {
                 movement.ChangeSpeed(_speedScalingFactor, _stopTimer);
-                enemy.TakeDamage(5);
+                enemy.TakeDamage(Damage);
                 KillAction.Invoke(this);
             }
         }

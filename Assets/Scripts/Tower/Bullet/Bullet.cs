@@ -14,7 +14,7 @@ namespace TowerDefence
 
         public float Damage { get; set; }
 
-        public void InitParams(Action<Bullet> killAction, float speed, float damage, bool isUpgrade)
+        public void Init(Action<Bullet> killAction, float speed, float damage, bool isUpgrade)
         {
             KillAction = killAction;
             _speed = speed;
