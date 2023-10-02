@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: -1285785324338971686}
   - component: {fileID: 8659235927060691989}
   - component: {fileID: 2010019519839236630}
-  - component: {fileID: 6202760611332159566}
   - component: {fileID: 8627669092128726027}
+  - component: {fileID: 6776481094642833905}
   m_Layer: 6
-  m_Name: FatEnemy
+  m_Name: Bug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 543051197213829668}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.782, y: 1.76, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3070922875482523626}
@@ -78,8 +78,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: -1494161306, guid: cbe5a487ff951a444abac57cd7f8051f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -165,19 +165,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: -1285785324338971686}
---- !u!114 &6202760611332159566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 543051197213829668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac5fb5086c7cab24bb75cfbe43b32d2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _healthBar: {fileID: 8868571715391135013}
 --- !u!114 &8627669092128726027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,7 +179,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _item: {fileID: 11400000, guid: 6c35738bb993b7d48898021277aaf667, type: 2}
   _enemyMovement: {fileID: 2010019519839236630}
-  _enemyHealthBar: {fileID: 6202760611332159566}
+  _enemyHealthBar: {fileID: 6441262862887105222}
+--- !u!95 &6776481094642833905
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543051197213829668}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9a31d5855e0e9cd4aa00609f6d475bb4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1001552966811597696
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 540447504258407376}
   - component: {fileID: 8868571715391135013}
+  - component: {fileID: 6441262862887105222}
   m_Layer: 5
   m_Name: HP
   m_TagString: Untagged
@@ -228,8 +237,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.56}
-  m_SizeDelta: {x: 160, y: 29.9786}
+  m_AnchoredPosition: {x: 0, y: 0.2}
+  m_SizeDelta: {x: 40, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8868571715391135013
 MonoBehaviour:
@@ -282,6 +291,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6441262862887105222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001552966811597696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac5fb5086c7cab24bb75cfbe43b32d2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthBar: {fileID: 8868571715391135013}
+  _offset: {x: 0, y: 0.5, z: 0}
 --- !u!1 &2285951579461345480
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000009536743, y: 0.37}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6863171720630919970

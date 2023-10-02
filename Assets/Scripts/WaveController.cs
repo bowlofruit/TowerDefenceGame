@@ -15,7 +15,7 @@ namespace TowerDefence
         private int _enemiesLeftToSpawn;
         private bool _isSpawning = false;
         private float _timeBetweenWaves = 3f;
-        private int _enemyCounter = 0;
+        private bool _isSpawningBoss;
 
         private bool _isGameOver;
 
@@ -63,7 +63,18 @@ namespace TowerDefence
 
         private void SpawnEnemy()
         {
-            GameObject prefabToSpawn = _waveConfig.EnemyPrefabs[_enemyCounter];
+            GameObject prefabToSpawn;
+
+            if (!_isSpawningBoss)
+            {
+                prefabToSpawn = _waveConfig.EnemyPrefabs[Random.Range(0, 2)];
+            }
+            else
+            {
+                prefabToSpawn = _waveConfig.EnemyPrefabs[^1];
+                _isSpawningBoss = false;
+            }
+
             Instantiate(prefabToSpawn, LevelCreator.Instance.WayPoints[0].transform.position, Quaternion.identity, transform);
         }
 
@@ -89,6 +100,11 @@ namespace TowerDefence
                 _isSpawning = false;
                 _waveCounter.text = $"Wave {_currentWave}/{_waveConfig.NumberOfWaves}";
                 StartCoroutine(StartWave());
+            }
+
+            if (_currentWave % 5 == 0)
+            {
+                _isSpawningBoss = true;
             }
         }
     }

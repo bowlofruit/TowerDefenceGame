@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: -1285785324338971686}
   - component: {fileID: 8659235927060691989}
   - component: {fileID: 2010019519839236630}
-  - component: {fileID: 7122757453049300298}
   - component: {fileID: 4834883214512944887}
+  - component: {fileID: 4492766432106944413}
   m_Layer: 6
-  m_Name: BossEnemy
+  m_Name: Scorpion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 543051197213829668}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.782, y: 1.76, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1249407412327250601}
@@ -78,8 +78,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 1786627317, guid: c4382bcfee926e345ae3a55fadc5c3e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -165,19 +165,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: -1285785324338971686}
---- !u!114 &7122757453049300298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 543051197213829668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac5fb5086c7cab24bb75cfbe43b32d2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _healthBar: {fileID: 5130508139133407577}
 --- !u!114 &4834883214512944887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,9 +178,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _item: {fileID: 11400000, guid: 62025f792536a6e459ba29e361d10401, type: 2}
-  _enemyHealth: {fileID: 4834883214512944887}
   _enemyMovement: {fileID: 2010019519839236630}
-  _enemyHealthBar: {fileID: 7122757453049300298}
+  _enemyHealthBar: {fileID: 4825109714397926243}
+--- !u!95 &4492766432106944413
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543051197213829668}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9507f90a1fc6a014591443c669828f1a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3071850849160867156
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,6 +397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5838532069498531605}
   - component: {fileID: 5130508139133407577}
+  - component: {fileID: 4825109714397926243}
   m_Layer: 5
   m_Name: HP
   m_TagString: Untagged
@@ -415,8 +423,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.56}
-  m_SizeDelta: {x: 160, y: 29.9786}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 50, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5130508139133407577
 MonoBehaviour:
@@ -469,6 +477,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4825109714397926243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7481488945298198145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac5fb5086c7cab24bb75cfbe43b32d2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthBar: {fileID: 5130508139133407577}
+  _offset: {x: 0, y: 0.6, z: 0}
 --- !u!1 &8743725382076954008
 GameObject:
   m_ObjectHideFlags: 0

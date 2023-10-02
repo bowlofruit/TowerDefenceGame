@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 namespace TowerDefence
 {
@@ -8,6 +9,8 @@ namespace TowerDefence
         [SerializeField] private UpgradeTower _upgradeTower;
         [SerializeField] private BulletSpawner _bulletSpawner;
         [SerializeField] private EnemyDetector _enemyDetector;
+
+        private float _originalSpeed;
 
         public int BuyPrice { get; private set; }
         public int SellPrice { get; private set; }
@@ -50,6 +53,8 @@ namespace TowerDefence
 
         private void Awake()
         {
+            _originalSpeed = Speed;
+
             _enemyDetector.Init(_item.Range);
             _bulletSpawner.Init(_item.Speed, _item.Damage, _enemyDetector);
             _upgradeTower.Init(_enemyDetector, _bulletSpawner);
@@ -58,6 +63,8 @@ namespace TowerDefence
             SellPrice = _item.SellPrice;
             UpgradePrice = (int)(BuyPrice * 1.5f);
             UpdateUI();
+
+            EventController.OnFreezeGame.AddListener(FrezzeSpeed);
         }
 
         public void BuyTower()
@@ -101,6 +108,18 @@ namespace TowerDefence
         public bool CanUpgradeTower()
         {
             return CoinsController.Instance.Coins >= UpgradePrice;
+        }
+
+        private void FrezzeSpeed(bool freeze)
+        {
+            if (freeze)
+            {
+                Speed = 0;
+            }
+            else
+            {
+                Speed = _originalSpeed;
+            }
         }
     }
 }

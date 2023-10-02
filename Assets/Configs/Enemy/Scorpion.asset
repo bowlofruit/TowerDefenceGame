@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0183962ed4981e4cb0f3be83564f754, type: 3}
-  m_Name: FatEnemy
+  m_Name: Scorpion
   m_EditorClassIdentifier: 
-  _health: 100
-  _speed: 2
-  _damage: 2
-  _reward: 70
-  _canStun: 0
+  _health: 150
+  _speed: 1.45
+  _damage: 5
+  _reward: 300
+  _canStun: 1

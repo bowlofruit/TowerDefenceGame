@@ -20,16 +20,18 @@ namespace TowerDefence
             _targetPathPoint = LevelCreator.Instance.WayPoints[0].transform;
         }
 
-        public void ChangeSpeed(float speedScalingFactor, int freezzeTime)
-        {
-            _moveSpeed *= speedScalingFactor;
-            StartCoroutine(ResetEnemySpeed(freezzeTime));
-        }
-
         public void Init(float moveSpeed, int castleDamage)
         {
             _moveSpeed = moveSpeed;
             _castleDamage = castleDamage;
+
+            EventController.OnFreezeGame.AddListener(FreezeMovement);
+        }
+
+        public void ChangeSpeed(float speedScalingFactor, int freezeTime)
+        {
+            _moveSpeed *= speedScalingFactor;
+            StartCoroutine(ResetEnemySpeed(freezeTime));
         }
 
         private void Update()
@@ -50,6 +52,9 @@ namespace TowerDefence
                     _targetPathPoint = LevelCreator.Instance.WayPoints[_pathIndex].transform;
                 }
             }
+            Vector3 dir = _targetPathPoint.position - transform.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
 
         private void FixedUpdate()
@@ -58,11 +63,23 @@ namespace TowerDefence
             _rb.velocity = dir * _moveSpeed;
         }
 
-        private IEnumerator ResetEnemySpeed(int frezzyTime)
+        private IEnumerator ResetEnemySpeed(int freezeTime)
         {
-            yield return new WaitForSeconds(frezzyTime);
+            yield return new WaitForSeconds(freezeTime);
 
             _moveSpeed = _originalSpeed;
+        }
+
+        private void FreezeMovement(bool freeze)
+        {
+            if(freeze)
+            {
+                _moveSpeed = 0;
+            }
+            else
+            {
+                _moveSpeed = _originalSpeed;
+            }
         }
     }
 }
