@@ -24,8 +24,6 @@ namespace TowerDefence
         {
             _moveSpeed = moveSpeed;
             _castleDamage = castleDamage;
-
-            EventController.OnFreezeGame.AddListener(FreezeMovement);
         }
 
         public void ChangeSpeed(float speedScalingFactor, int freezeTime)
@@ -68,18 +66,6 @@ namespace TowerDefence
             yield return new WaitForSeconds(freezeTime);
 
             _moveSpeed = _originalSpeed;
-        }
-
-        private void FreezeMovement(bool freeze)
-        {
-            if(freeze)
-            {
-                _moveSpeed = 0;
-            }
-            else
-            {
-                _moveSpeed = _originalSpeed;
-            }
         }
     }
 }

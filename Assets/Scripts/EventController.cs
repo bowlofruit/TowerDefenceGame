@@ -11,7 +11,6 @@ public class EventController : MonoBehaviour
 
     public static UnityEvent OnGameOver { get; set; } = new UnityEvent();
     public static UnityEvent OnLevelCompelete { get; set; } = new UnityEvent();
-    public static UnityEvent<bool> OnFreezeGame { get; set; } = new UnityEvent<bool>();
 
     public static UnityEvent<int> OnTowerBuy { get; set; } = new UnityEvent<int>();
     public static UnityEvent<int> OnTowerSell { get; set; } = new UnityEvent<int>();

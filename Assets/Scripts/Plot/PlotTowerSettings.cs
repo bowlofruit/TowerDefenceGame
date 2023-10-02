@@ -5,14 +5,15 @@ namespace TowerDefence
     public class PlotTowerSettings : MonoBehaviour
     {
         private TowerController _tower;
-        private bool _isGround;
 
         public TowerController Tower { get => _tower; set => _tower = value; }
-        public bool IsGround { get => _isGround; set => _isGround = value; }
+        public bool IsGround { get; set; }
+
+        public static bool IsFreezeTime { get; set; } 
 
         private void OnMouseDown()
         {
-            if (IsGround) return;
+            if (IsGround || IsFreezeTime) return;
 
             if (_tower == null)
             {

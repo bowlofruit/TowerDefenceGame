@@ -13,17 +13,16 @@ public class LevelCompleteController : MonoBehaviour
 
     private void ShowLevelFailedPanel()
     {
-        ShowPanelAndFreezeGame(_levelFailedPanel);
+        ShowPanel(_levelFailedPanel);
     }
 
     private void ShowLevelCompletePanel()
     {
-        ShowPanelAndFreezeGame(_levelCompeletPanel);
+        ShowPanel(_levelCompeletPanel);
     }
 
-    private void ShowPanelAndFreezeGame(GameObject panel)
+    private void ShowPanel(GameObject panel)
     {
         panel.SetActive(true);
-        EventController.OnFreezeGame.Invoke(true);
     }
 }
