@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2010019519839236630}
   - component: {fileID: 4834883214512944887}
   - component: {fileID: 4492766432106944413}
+  - component: {fileID: 7387244699618438185}
   m_Layer: 6
   m_Name: Scorpion
   m_TagString: Untagged
@@ -146,7 +147,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -201,6 +202,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7387244699618438185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543051197213829668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58a21b3d9e15e442bb430af329039f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 1
+  _towerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &3071850849160867156
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,7 +441,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 10}
+  m_SizeDelta: {x: 60, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5130508139133407577
 MonoBehaviour:

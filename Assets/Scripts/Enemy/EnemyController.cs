@@ -31,6 +31,8 @@ namespace TowerDefence
             {
                 EventController.OnEnemyDestroy.Invoke();
                 EventController.OnEnemyCoinsAmount.Invoke(_reward);
+
+                AudioController.Instance.PlayEnemyDeathSound();
                 Destroy(gameObject);
             }
         }

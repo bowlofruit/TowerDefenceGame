@@ -10,7 +10,7 @@ namespace TowerDefence
 
         [SerializeField] SpriteRenderer _bulletSprite;
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.TryGetComponent(out EnemyController enemy))
             {
@@ -23,7 +23,5 @@ namespace TowerDefence
                 KillAction.Invoke(this);
             }
         }
-
-
     }
 }

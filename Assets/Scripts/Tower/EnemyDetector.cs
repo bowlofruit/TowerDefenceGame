@@ -8,7 +8,7 @@ namespace TowerDefence
 
         public float Range { get; set; }
 
-        public void Init(int range)
+        public void Init(float range)
         {
             Range = range;
         }

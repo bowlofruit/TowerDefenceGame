@@ -17,7 +17,6 @@ namespace TowerDefence
         private IEnumerator LifeTimeArea(float lifetime)
         {
             yield return new WaitForSeconds(lifetime);
-            Destroy(gameObject);
         }
 
         private void OnTriggerStay2D(Collider2D collision)

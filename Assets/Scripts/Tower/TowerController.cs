@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace TowerDefence
@@ -9,6 +10,7 @@ namespace TowerDefence
         [SerializeField] private BulletSpawner _bulletSpawner;
         [SerializeField] private EnemyDetector _enemyDetector;
 
+        public bool WasStuned { get; private set; }
         public int BuyPrice { get; private set; }
         public int SellPrice { get; private set; }
         public int UpgradePrice { get; private set; }
@@ -48,8 +50,12 @@ namespace TowerDefence
             }
         }
 
+        public TowerItem Item { get => _item; set => _item = value; }
+
         private void Awake()
         {
+            WasStuned = true;
+
             _enemyDetector.Init(_item.Range);
             _bulletSpawner.Init(_item.Speed, _item.Damage, _enemyDetector);
             _upgradeTower.Init(_enemyDetector, _bulletSpawner);
@@ -62,6 +68,7 @@ namespace TowerDefence
 
         public void BuyTower()
         {
+            AudioController.Instance.PlayTowerBuildSound();
             EventController.OnTowerBuy.Invoke(BuyPrice);
         }
 
@@ -76,6 +83,8 @@ namespace TowerDefence
             if (CanUpgradeTower() && _upgradeTower.TowerUpdate())
             {
                 EventController.OnTowerUpgrade.Invoke(UpgradePrice);
+
+                AudioController.Instance.PlayTowerUpgradeSound();
 
                 UpgradePrice += (int)(UpgradePrice * 1.5f);
                 SellPrice += (int)(SellPrice * 1.2f);
@@ -101,6 +110,18 @@ namespace TowerDefence
         public bool CanUpgradeTower()
         {
             return CoinsController.Instance.Coins >= UpgradePrice;
+        }
+
+        public void RemoveStunAfterDelay()
+        {
+            StartCoroutine(RemoveStunCoroutine());
+        }
+
+        private IEnumerator RemoveStunCoroutine()
+        {
+            yield return new WaitForSeconds(10);
+
+            WasStuned = false;
         }
     }
 }

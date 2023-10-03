@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: -2165214741295017642}
   - component: {fileID: 136264406608339511}
   - component: {fileID: -7244491816171500021}
-  m_Layer: 0
+  - component: {fileID: 444574466271040666}
+  m_Layer: 8
   m_Name: FireTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +119,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 3783785889251461211, guid: cb4fb3891cbad7241b7967102c537b32, type: 3}
   _sprite: {fileID: 782048700, guid: 58a7fb0499f377c469f88eff401a3a0a, type: 3}
-  _explosionRadius: 0.3
 --- !u!114 &136264406608339511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,4 +151,39 @@ MonoBehaviour:
   - {fileID: -1845542204, guid: cf5ab8a536604914c90f6c481f5721d7, type: 3}
   - {fileID: 1503357479, guid: cf5ab8a536604914c90f6c481f5721d7, type: 3}
   - {fileID: 940942769, guid: cf5ab8a536604914c90f6c481f5721d7, type: 3}
-  _upgradeType: 0
+  _upgradeType: 1
+--- !u!58 &444574466271040666
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6123562726963342447}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.38399997}
+  serializedVersion: 2
+  m_Radius: 0.64

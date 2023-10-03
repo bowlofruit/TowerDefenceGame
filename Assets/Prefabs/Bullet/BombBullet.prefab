@@ -164,7 +164,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: -3195403045318340957}
   _explosionRadius: 1
-  _areaPrefab: {fileID: 4129785567164374052, guid: 7d435479fff73d948b8318505d04e99d, type: 3}
+  _areaPrefab: {fileID: 1953029361064654417, guid: 7d435479fff73d948b8318505d04e99d, type: 3}
+  _areaLifeTime: 3
+  _areaCreationChance: 0.5
 --- !u!95 &3566723411504767571
 Animator:
   serializedVersion: 5

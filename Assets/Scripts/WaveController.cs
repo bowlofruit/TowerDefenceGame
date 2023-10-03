@@ -67,7 +67,7 @@ namespace TowerDefence
 
             if (!_isSpawningBoss)
             {
-                prefabToSpawn = _waveConfig.EnemyPrefabs[Random.Range(0, 2)];
+                prefabToSpawn = _waveConfig.EnemyPrefabs[Random.Range(0, _waveConfig.EnemyPrefabs.Length - 2)];
             }
             else
             {

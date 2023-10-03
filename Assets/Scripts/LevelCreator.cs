@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TowerDefence;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelCreator : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class LevelCreator : MonoBehaviour
     private void Start()
     {
         _sprSize = new Vector2(_sellSpr.bounds.size.x, _sellSpr.bounds.size.y);
-        CreateLevel(1);
+        CreateLevel(SceneManager.GetActiveScene().buildIndex);
         LoadWaypoints();
         GetComponent<CastleController>().InitCastle(WayPoints[^1].transform);
     }
@@ -50,20 +51,22 @@ public class LevelCreator : MonoBehaviour
                 Sprite spr = _tileSpr[sprIndex];
 
                 bool isGround = spr == _tileSpr[1];
+                bool isDecorate = (spr == _tileSpr[2]) || (spr == _tileSpr[3]) || (spr == _tileSpr[4]);
 
                 Vector2 cellPosition = new Vector2(worldVec.x + (_sprSize.x * j),
                                                    worldVec.y + (_sprSize.y * -i));
-                CreateCell(isGround, spr, j, i, cellPosition);
+                CreateCell(isGround, isDecorate, spr, j, i, cellPosition);
             }
         }
     }
 
-    private void CreateCell(bool isGround, Sprite spr, int x, int y, Vector2 cellPosition)
+    private void CreateCell(bool isGround, bool isDecorate, Sprite spr, int x, int y, Vector2 cellPosition)
     {
         GameObject tmpCell = Instantiate(_sellPrefab);
 
         tmpCell.transform.SetParent(_cellParent, false);
         tmpCell.GetComponent<SpriteRenderer>().sprite = spr;
+        var plotController = tmpCell.GetComponent<PlotTowerSettings>();
 
         tmpCell.transform.position = cellPosition;
 
@@ -71,7 +74,7 @@ public class LevelCreator : MonoBehaviour
 
         if (isGround)
         {
-            tmpCell.GetComponent<PlotTowerSettings>().IsGround = true;
+            plotController.IsGround = true;
 
             if (_firstCell == null)
             {
@@ -79,6 +82,11 @@ public class LevelCreator : MonoBehaviour
                 currWayX = x;
                 currWayY = y;
             }
+        }
+
+        if (isDecorate)
+        {
+            plotController.IsDecorate = true;
         }
     }
 

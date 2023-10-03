@@ -29,11 +29,7 @@ namespace TowerDefence
 
         private void FixedUpdate()
         {
-            if (!_target)
-            {
-                Destroy(gameObject);
-                return;
-            }
+            if (!_target) return;
 
             Vector2 dir = (_target.position - transform.position).normalized;
 

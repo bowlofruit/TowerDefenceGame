@@ -33,5 +33,10 @@ namespace TowerDefence
                 Time.timeScale = 1f;
             }
         }
+
+        public void GameExit()
+        {
+            Application.Quit();
+        }
     }
 }

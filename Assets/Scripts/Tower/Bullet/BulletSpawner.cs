@@ -17,7 +17,7 @@ namespace TowerDefence
         public float Speed { get; set; }
         public bool IsUpgrade { get; set; } = false;
 
-        public void Init(int speed, int damage, EnemyDetector enemyDetector)
+        public void Init(float speed, float damage, EnemyDetector enemyDetector)
         {
             Speed = speed;
             Damage = damage;
@@ -67,6 +67,8 @@ namespace TowerDefence
 
         private void Shoot()
         {
+            AudioController.Instance.PlayTowerShootSound();
+
             var bulletPrefab = _bulletPool.Get();
             bulletPrefab.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
             bulletPrefab.SetTarget(_target);
