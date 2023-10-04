@@ -6,20 +6,13 @@ public class StunTower : MonoBehaviour
 {
     [SerializeField] private float _radius;
     [SerializeField] private LayerMask _towerMask;
+    [SerializeField] private float _stunTime;
 
-    private void Update()
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        Collider2D[] towersInRadius = Physics2D.OverlapCircleAll(transform.position, _radius, _towerMask);
-
-        foreach (var towerCollider in towersInRadius)
+        if (collider.TryGetComponent<TowerController>(out var tower))
         {
-            if (towerCollider.TryGetComponent<TowerController>(out var tower))
-            {
-                if (!tower.WasStuned)
-                {
-                    StartCoroutine(SlowDownTower(tower));
-                }
-            }
+            StartCoroutine(SlowDownTower(tower));
         }
     }
 
@@ -29,9 +22,15 @@ public class StunTower : MonoBehaviour
 
         tower.Speed = 0f;
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(_stunTime);
 
         tower.Speed = originalSpeed;
         tower.RemoveStunAfterDelay();
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, _radius);
     }
 }

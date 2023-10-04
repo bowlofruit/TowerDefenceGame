@@ -50,7 +50,7 @@ namespace TowerDefence
                 _timeSinceLastSpawn = 0;
             }
 
-            if (_enemiesAlive == 0 && _enemiesLeftToSpawn == 0)
+            if (_enemiesAlive <= 0 && _enemiesLeftToSpawn <= 0)
             {
                 EndWave();
             }
@@ -67,7 +67,7 @@ namespace TowerDefence
 
             if (!_isSpawningBoss)
             {
-                prefabToSpawn = _waveConfig.EnemyPrefabs[Random.Range(0, _waveConfig.EnemyPrefabs.Length - 2)];
+                prefabToSpawn = _waveConfig.EnemyPrefabs[Random.Range(0, _waveConfig.EnemyPrefabs.Length - 1)];
             }
             else
             {

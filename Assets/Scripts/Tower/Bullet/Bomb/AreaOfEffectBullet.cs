@@ -14,13 +14,14 @@ namespace TowerDefence
 
         private ObjectPool<DamageArea> _areaPool;
 
-        private void Awake()
+        private void Start()
         {
             _areaPool = new ObjectPool<DamageArea>(() => 
                 { return Instantiate(_areaPrefab); },
                 area => { area.gameObject.SetActive(true); },
                 area => { area.gameObject.SetActive(false); },
-                area => { Destroy(area.gameObject); }, false, 5, 10);
+                area => { Destroy(area.gameObject); }, 
+                false, 5, 10);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -49,8 +50,12 @@ namespace TowerDefence
         {
             var damageArea = _areaPool.Get();
             damageArea.transform.position = enemy.transform.position;
-            damageArea.StartLifeTimeArea(_areaLifeTime);
-            _areaPool.Release(damageArea);
+            damageArea.StartLifeTimeArea(_areaLifeTime, KillArea);
+        }
+
+        private void KillArea(DamageArea area)
+        {
+            _areaPool.Release(area);
         }
     }
 }

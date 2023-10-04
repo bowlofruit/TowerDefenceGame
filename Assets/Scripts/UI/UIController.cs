@@ -8,16 +8,19 @@ namespace TowerDefence
         public void RestartLevel()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            FreezeTime(false);
         }
 
         public void BackToMenu()
         {
             SceneManager.LoadScene(0);
+            FreezeTime(false);
         }
 
         public void NextLevel()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            FreezeTime(false);
         }
 
         public void FreezeTime(bool isFreeze)

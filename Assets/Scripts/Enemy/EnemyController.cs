@@ -11,6 +11,8 @@ namespace TowerDefence
         [SerializeField] private EnemyHealthBar _enemyHealthBar;
         private int _reward;
 
+        private bool _isDestroyed;
+
         public float Health { get; set; }
 
         private void Awake()
@@ -29,11 +31,15 @@ namespace TowerDefence
 
             if (Health <= 0)
             {
-                EventController.OnEnemyDestroy.Invoke();
-                EventController.OnEnemyCoinsAmount.Invoke(_reward);
+                if (!_isDestroyed)
+                {
+                    _isDestroyed = true;
+                    EventController.OnEnemyDestroy.Invoke();
+                    EventController.OnEnemyCoinsAmount.Invoke(_reward);
 
-                AudioController.Instance.PlayEnemyDeathSound();
-                Destroy(gameObject);
+                    AudioController.Instance.PlayEnemyDeathSound();
+                    Destroy(gameObject);
+                }
             }
         }
 

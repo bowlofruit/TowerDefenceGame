@@ -70,9 +70,9 @@ namespace TowerDefence
             AudioController.Instance.PlayTowerShootSound();
 
             var bulletPrefab = _bulletPool.Get();
+            bulletPrefab.Init(KillBullet, Speed, Damage, IsUpgrade);
             bulletPrefab.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
             bulletPrefab.SetTarget(_target);
-            bulletPrefab.Init(KillBullet, Speed, Damage, IsUpgrade);
         }
 
         private void KillBullet(Bullet bullet)

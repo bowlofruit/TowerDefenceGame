@@ -151,7 +151,7 @@ MonoBehaviour:
   - {fileID: -1845542204, guid: cf5ab8a536604914c90f6c481f5721d7, type: 3}
   - {fileID: 1503357479, guid: cf5ab8a536604914c90f6c481f5721d7, type: 3}
   - {fileID: 940942769, guid: cf5ab8a536604914c90f6c481f5721d7, type: 3}
-  _upgradeType: 1
+  _upgradeType: 2
 --- !u!58 &444574466271040666
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -184,6 +184,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.38399997}
+  m_Offset: {x: 0, y: 0.4}
   serializedVersion: 2
-  m_Radius: 0.64
+  m_Radius: 0.1

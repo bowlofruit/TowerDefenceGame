@@ -2,38 +2,47 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
+    [SerializeField] private AudioSource audioSource;
+
     [SerializeField] private AudioClip towerBuildSound;
     [SerializeField] private AudioClip towerShootSound;
     [SerializeField] private AudioClip towerUpgradeSound;
 
     [SerializeField] private AudioClip enemyDeathSound;
 
-    [SerializeField] private AudioSource audioSource;
-
     public static AudioController Instance { get; set; }
 
     private void Awake()
     {
         Instance = this;
+        audioSource.enabled = PlayerPrefs.GetInt("SoundOn", 1) == 1;
+    }
+
+    public void PlaySound(AudioClip audioClip)
+    {
+        if (audioSource.enabled && audioClip != null)
+        {
+            audioSource.PlayOneShot(audioClip);
+        }
     }
 
     public void PlayTowerBuildSound()
     {
-        audioSource.PlayOneShot(towerBuildSound);
+        PlaySound(towerBuildSound);
     }
 
     public void PlayTowerShootSound()
     {
-        audioSource.PlayOneShot(towerShootSound);
+        PlaySound(towerShootSound);
     }
 
     public void PlayTowerUpgradeSound()
     {
-        audioSource.PlayOneShot(towerUpgradeSound);
+        PlaySound(towerUpgradeSound);
     }
 
     public void PlayEnemyDeathSound()
     {
-        audioSource.PlayOneShot(enemyDeathSound);
+        PlaySound(enemyDeathSound);
     }
 }

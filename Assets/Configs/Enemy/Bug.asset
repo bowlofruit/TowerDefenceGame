@@ -15,5 +15,5 @@ MonoBehaviour:
   _health: 200
   _speed: 1.35
   _damage: 2
-  _reward: 100
+  _reward: 50
   _canStun: 0
