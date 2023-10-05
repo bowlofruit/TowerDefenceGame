@@ -34,7 +34,7 @@ namespace TowerDefence
             }
             else
             {
-                EventController.OnUpdateButtonsUI.Invoke(Tower);
+                EventController.OnUpdateButtonsUI.Invoke(Tower, !_tower.IsMaxUpgrade);
                 EventController.OnUpdateInfoUI.Invoke(Tower.Range, Tower.Speed, Tower.Damage);
             }
 

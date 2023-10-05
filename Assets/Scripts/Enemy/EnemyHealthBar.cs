@@ -21,6 +21,11 @@ public class EnemyHealthBar : MonoBehaviour
 
     public void UpdateHealthBar()
     {
+        if(_maxHP < _enemyHealth.Health)
+        {
+            _enemyHealth.Health = _maxHP;
+        }
+
         _healthBar.value = _enemyHealth.Health / _maxHP;
     }
 

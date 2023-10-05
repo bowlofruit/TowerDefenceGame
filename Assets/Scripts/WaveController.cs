@@ -9,14 +9,17 @@ namespace TowerDefence
         [SerializeField] private LevelConfig _waveConfig;
         [SerializeField] private TMP_Text _waveCounter;
 
+        [SerializeField] private float _timeBetweenWaves = 3f;
+
         private int _currentWave = 0;
         private float _timeSinceLastSpawn = 0;
         private int _enemiesAlive = 0;
         private int _enemiesLeftToSpawn;
-        private bool _isSpawning = false;
-        private float _timeBetweenWaves = 3f;
-        private bool _isSpawningBoss;
+        private float _currentWaveHealthMultiplier = 1.0f;
 
+        private bool _isBossSpawned;
+
+        private bool _isSpawning = false;
         private bool _isGameOver;
 
         private void Awake()
@@ -65,22 +68,20 @@ namespace TowerDefence
         {
             GameObject prefabToSpawn;
 
-            if (!_isSpawningBoss)
+            if (!_isBossSpawned)
             {
                 prefabToSpawn = _waveConfig.EnemyPrefabs[Random.Range(0, _waveConfig.EnemyPrefabs.Length - 1)];
             }
             else
             {
                 prefabToSpawn = _waveConfig.EnemyPrefabs[^1];
-                _isSpawningBoss = false;
+                _isBossSpawned = false;
             }
 
-            Instantiate(prefabToSpawn, LevelCreator.Instance.WayPoints[0].transform.position, Quaternion.identity, transform);
-        }
+            GameObject enemy = Instantiate(prefabToSpawn, LevelCreator.Instance.WayPoints[0].transform.position, Quaternion.identity, transform);
+            EnemyController enemyController = enemy.GetComponent<EnemyController>();
 
-        private int EnemiesPerWave()
-        {
-            return Mathf.RoundToInt(_waveConfig.NumberOfEnemies * Mathf.Pow(_currentWave, _waveConfig.DifficultScalingFactor));
+            enemyController.Health *= _currentWaveHealthMultiplier;
         }
 
         private IEnumerator StartWave()
@@ -88,7 +89,9 @@ namespace TowerDefence
             yield return new WaitForSeconds(_timeBetweenWaves);
 
             _isSpawning = true;
-            _enemiesLeftToSpawn = EnemiesPerWave();
+            _enemiesLeftToSpawn = _waveConfig.NumberOfEnemies;
+
+            _currentWaveHealthMultiplier *= 1.2f;
         }
 
         private void EndWave()
@@ -104,7 +107,7 @@ namespace TowerDefence
 
             if (_currentWave % 5 == 0)
             {
-                _isSpawningBoss = true;
+                _isBossSpawned = true;
             }
         }
     }

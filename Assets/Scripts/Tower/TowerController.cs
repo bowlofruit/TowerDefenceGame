@@ -10,7 +10,9 @@ namespace TowerDefence
         [SerializeField] private BulletSpawner _bulletSpawner;
         [SerializeField] private EnemyDetector _enemyDetector;
 
+        public bool IsMaxUpgrade { get; private set; }
         public bool WasStuned { get; private set; }
+
         public int BuyPrice { get; private set; }
         public int SellPrice { get; private set; }
         public int UpgradePrice { get; private set; }
@@ -62,8 +64,8 @@ namespace TowerDefence
 
             BuyPrice = _item.BuyPrice;
             SellPrice = _item.SellPrice;
-            UpgradePrice = (int)(BuyPrice * 1.5f);
-            UpdateUI();
+            UpgradePrice = (int)(BuyPrice * 1.5f + BuyPrice);
+            UpdateUI(true);
         }
 
         public void BuyTower()
@@ -80,25 +82,24 @@ namespace TowerDefence
 
         public void UpgradeTower()
         {
-            if (CanUpgradeTower() && _upgradeTower.TowerUpdate())
+            IsMaxUpgrade = _upgradeTower.CheckMaxUpdate();
+            if (CanUpgradeTower() && !IsMaxUpgrade)
             {
                 EventController.OnTowerUpgrade.Invoke(UpgradePrice);
+                _upgradeTower.ApplyUpgrade();
 
                 AudioController.Instance.PlayTowerUpgradeSound();
 
-                UpgradePrice += (int)(UpgradePrice * 1.5f);
-                SellPrice += (int)(SellPrice * 1.2f);
-                UpdateUI();
-            }
-            else
-            {
-                Debug.Log("Can't update tower");
+                UpgradePrice += (int)(UpgradePrice * 1.5f + BuyPrice);
+                SellPrice += (int)(SellPrice * 1.2f + BuyPrice);
+
+                UpdateUI(!IsMaxUpgrade);
             }
         }
 
-        private void UpdateUI()
+        private void UpdateUI(bool isActiveUpdate)
         {
-            EventController.OnUpdateButtonsUI.Invoke(this);
+            EventController.OnUpdateButtonsUI.Invoke(this, isActiveUpdate);
             EventController.OnUpdateInfoUI.Invoke(Range, Speed, Damage);
         }
 

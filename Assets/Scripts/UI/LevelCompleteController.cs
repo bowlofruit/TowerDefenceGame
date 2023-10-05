@@ -1,7 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelCompleteController : MonoBehaviour
 {
+    public const string COMPLETE_LEVEL_KEY = "CompleteLevels";
+
     [SerializeField] private GameObject _levelFailedPanel;
     [SerializeField] private GameObject _levelCompeletPanel;
 
@@ -18,6 +21,11 @@ public class LevelCompleteController : MonoBehaviour
 
     private void ShowLevelCompletePanel()
     {
+        PlayerPrefs.SetInt(COMPLETE_LEVEL_KEY, SceneManager.GetActiveScene().buildIndex);
+        PlayerPrefs.Save();
+
+        Debug.Log(PlayerPrefs.GetInt(COMPLETE_LEVEL_KEY));
+
         ShowPanel(_levelCompeletPanel);
     }
 

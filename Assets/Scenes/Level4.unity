@@ -350,7 +350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &113108827
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3006,6 +3006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveConfig: {fileID: 11400000, guid: a42679cfef3213d47b5febb04f4bf3f2, type: 2}
   _waveCounter: {fileID: 987231588}
+  _timeBetweenWaves: 3
 --- !u!1 &1441047872
 GameObject:
   m_ObjectHideFlags: 0
@@ -4890,7 +4891,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
+  m_fontSize: 30.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

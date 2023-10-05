@@ -28,26 +28,17 @@ namespace TowerDefence
             _bulletSpawner = bulletSpawner;
         }
 
-        public bool TowerUpdate()
+        public bool CheckMaxUpdate()
         {
-            if (_updateCount >= MaxUpgrades)
-            {
-                return false;
-            }
-
-            ApplyUpgrade();
-            _updateCount++;
-            _spriteRenderer.sprite = _updateSprites[_updateCount];
-
-            return true;
+            return _updateCount >= MaxUpgrades;
         }
 
-        private void ApplyUpgrade()
+        public void ApplyUpgrade()
         {
             switch (_upgradeType)
             {
                 case UpgradeType.Damage:
-                    _bulletSpawner.Damage *= 1.3f;
+                    _bulletSpawner.Damage *= 1.5f;
                     break;
 
                 case UpgradeType.Range:
@@ -63,6 +54,9 @@ namespace TowerDefence
             {
                 _bulletSpawner.IsUpgrade = true;
             }
+
+            _updateCount++;
+            _spriteRenderer.sprite = _updateSprites[_updateCount];
         }
     }
 }

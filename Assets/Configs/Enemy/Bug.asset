@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0183962ed4981e4cb0f3be83564f754, type: 3}
   m_Name: Bug
   m_EditorClassIdentifier: 
-  _health: 200
+  _health: 100
   _speed: 1.35
   _damage: 2
   _reward: 50
-  _canStun: 0

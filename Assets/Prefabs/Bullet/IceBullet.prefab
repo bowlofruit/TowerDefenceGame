@@ -162,5 +162,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: -3195403045318340957}
-  _speedScalingFactor: 0.595
-  _stopTimer: 4
+  _speedScalingFactor: 0.7
+  _stopTimer: 2

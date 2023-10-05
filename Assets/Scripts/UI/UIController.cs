@@ -41,5 +41,19 @@ namespace TowerDefence
         {
             Application.Quit();
         }
+
+        public void ContinueGame()
+        {
+            SceneManager.LoadScene(PlayerPrefs.GetInt(LevelCompleteController.COMPLETE_LEVEL_KEY, 0) + 1);
+            PlayerPrefs.Save();
+        }
+
+        public void NewGame()
+        {
+            PlayerPrefs.SetInt(LevelCompleteController.COMPLETE_LEVEL_KEY, 0);
+            PlayerPrefs.Save();
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }

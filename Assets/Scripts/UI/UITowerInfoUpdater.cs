@@ -24,10 +24,10 @@ namespace TowerDefence
             EventController.OnUpdateInfoUI.AddListener(SetTowerInfoText);
         }
 
-        private void SetParamsText(TowerController towerEconomic)
+        private void SetParamsText(TowerController towerEconomic, bool isUpdateApdate)
         {
             RemoveButtonsListeners();
-            SetButtonsListeners(towerEconomic);
+            SetButtonsListeners(towerEconomic, isUpdateApdate);
 
             _updatePrice.text = towerEconomic.UpgradePrice.ToString();
             _sellPrice.text = towerEconomic.SellPrice.ToString();
@@ -40,8 +40,10 @@ namespace TowerDefence
             _damageText.text = ((int)(damage * 10)).ToString();
         }
 
-        private void SetButtonsListeners(TowerController towerEconomic)
+        private void SetButtonsListeners(TowerController towerEconomic, bool isUpdateActive)
         {
+            _updateButton.gameObject.SetActive(isUpdateActive);
+
             _updateButton.onClick.AddListener(towerEconomic.UpgradeTower);
             _sellButton.onClick.AddListener(towerEconomic.SellTower);
         }
