@@ -36,7 +36,7 @@ namespace TowerDefence
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + -90));
 
-            _rb.velocity = dir * _speed * 3;
+            _rb.velocity = dir * _speed * 2;
         }
     }
 }

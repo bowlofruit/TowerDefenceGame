@@ -24,8 +24,6 @@ public class LevelCompleteController : MonoBehaviour
         PlayerPrefs.SetInt(COMPLETE_LEVEL_KEY, SceneManager.GetActiveScene().buildIndex);
         PlayerPrefs.Save();
 
-        Debug.Log(PlayerPrefs.GetInt(COMPLETE_LEVEL_KEY));
-
         ShowPanel(_levelCompeletPanel);
     }
 

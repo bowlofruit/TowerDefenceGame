@@ -7,30 +7,30 @@ public class EnemyHealthBar : MonoBehaviour
     [SerializeField] private Slider _healthBar;
     [SerializeField] private Vector3 _offset;
 
-    private EnemyController _enemyHealth;
     private Camera _camera;
 
+    private Transform _transformEnemy;
     private float _maxHP;
 
     public void Init(EnemyController enemyHealth)
     {
         _camera = Camera.main;
-        _enemyHealth = enemyHealth;
-        _maxHP = _enemyHealth.Health;
+        _maxHP = enemyHealth.Health;
+        _transformEnemy = enemyHealth.transform;
     }
 
-    public void UpdateHealthBar()
+    public void UpdateHealthBar(float health)
     {
-        if(_maxHP < _enemyHealth.Health)
+        if(_maxHP < health)
         {
-            _enemyHealth.Health = _maxHP;
+            health = _maxHP;
         }
 
-        _healthBar.value = _enemyHealth.Health / _maxHP;
+        _healthBar.value = health / _maxHP;
     }
 
     private void Update()
     {
-        transform.SetPositionAndRotation(_enemyHealth.transform.position + _offset, _camera.transform.rotation);
+        transform.SetPositionAndRotation(_transformEnemy.position + _offset, _camera.transform.rotation);
     }
 }

@@ -21,13 +21,18 @@ namespace TowerDefence
             _reward = _item.Reward;
 
             _enemyMovement.Init(_item.Speed, _item.Damage);
+        }
+
+        private void Start()
+        {
             _enemyHealthBar.Init(this);
         }
 
         public void TakeDamage(float damage)
         {
             Health -= damage;
-            _enemyHealthBar.UpdateHealthBar();
+
+            _enemyHealthBar.UpdateHealthBar(Health);
 
             if (Health <= 0)
             {
