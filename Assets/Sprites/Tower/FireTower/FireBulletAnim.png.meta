@@ -119,80 +119,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tower 07 - Level X - Projectile_0
+      name: FireBulletAnim_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 3
-        width: 8
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9e5fba8b8ae37444ab002fa0bb1558e0
-      internalID: 782048700
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tower 07 - Level X - Projectile_1
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 1
-        width: 8
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e3de75190fe16cb4c8d1d9ff75321133
-      internalID: -2027885187
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tower 07 - Level X - Projectile_2
-      rect:
-        serializedVersion: 2
-        x: 76
-        y: 2
-        width: 8
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ee8f5202aa5c384468d89a92845e6958
-      internalID: 1275968714
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tower 07 - Level X - Projectile_3
-      rect:
-        serializedVersion: 2
-        x: 108
+        x: 0
         y: 0
-        width: 8
-        height: 20
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,83 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83e2407c7f82d084c8daf7daddff5ced
-      internalID: 418035454
+      spriteID: 0bb18f75da1b7614c82c35dfb4e8c077
+      internalID: 1921651450
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 07 - Level X - Projectile_4
+      name: FireBulletAnim_1
       rect:
         serializedVersion: 2
-        x: 140
-        y: 3
-        width: 8
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 75ae2390f1ac5f34184b8b1af24de1b8
-      internalID: -1653885170
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tower 07 - Level X - Projectile_5
-      rect:
-        serializedVersion: 2
-        x: 172
-        y: 1
-        width: 8
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e14da6b6269912d4cb0a2d3d566aefec
-      internalID: 1475790957
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tower 07 - Level X - Projectile_6
-      rect:
-        serializedVersion: 2
-        x: 204
-        y: 2
-        width: 8
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1dc432d60722c674db959b043ca50f2b
-      internalID: -1442597913
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tower 07 - Level X - Projectile_7
-      rect:
-        serializedVersion: 2
-        x: 236
+        x: 32
         y: 0
-        width: 8
-        height: 20
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,8 +171,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0fa095e8af31644f9f66b8e9474d70b
-      internalID: 480627065
+      spriteID: 4f4a8f986249a094d8b47aa50efb4426
+      internalID: -1265017973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireBulletAnim_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff72f851ad566bb48b3520865c2be341
+      internalID: 1294655628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireBulletAnim_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e12a15854f38ccd4390eae699dbb3e09
+      internalID: 38356700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireBulletAnim_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb7e4c93b4666ee4b8cfe3fa55861340
+      internalID: 2047764534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireBulletAnim_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f04e54b40f8ca88458d0bb8aee6efcb5
+      internalID: 665460228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireBulletAnim_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec781621e768a0f40a80b172c6090bb9
+      internalID: -1971751356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireBulletAnim_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9ed0ed751d79c545a87f69aa1663ebc
+      internalID: 1971067568
       vertices: []
       indices: 
       edges: []
@@ -301,14 +314,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Tower 07 - Level X - Projectile_0: 782048700
-      Tower 07 - Level X - Projectile_1: -2027885187
-      Tower 07 - Level X - Projectile_2: 1275968714
-      Tower 07 - Level X - Projectile_3: 418035454
-      Tower 07 - Level X - Projectile_4: -1653885170
-      Tower 07 - Level X - Projectile_5: 1475790957
-      Tower 07 - Level X - Projectile_6: -1442597913
-      Tower 07 - Level X - Projectile_7: 480627065
+      FireBulletAnim_0: 1921651450
+      FireBulletAnim_1: -1265017973
+      FireBulletAnim_2: 1294655628
+      FireBulletAnim_3: 38356700
+      FireBulletAnim_4: 2047764534
+      FireBulletAnim_5: 665460228
+      FireBulletAnim_6: -1971751356
+      FireBulletAnim_7: 1971067568
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

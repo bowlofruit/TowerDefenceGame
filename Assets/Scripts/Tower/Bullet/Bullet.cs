@@ -6,6 +6,7 @@ namespace TowerDefence
     public class Bullet : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D _rb;
+        [SerializeField] protected Animator _animator;
 
         protected Action<Bullet> KillAction { get; set; }
         private float _speed;

@@ -29,11 +29,5 @@ namespace TowerDefence
         {
             return target != null && Vector2.Distance(target.position, transform.position) <= Range;
         }
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.position, Range);
-        }
     }
 }

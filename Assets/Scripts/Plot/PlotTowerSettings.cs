@@ -25,6 +25,8 @@ namespace TowerDefence
                     {
                         _tower = Instantiate(tower, transform.position, Quaternion.identity);
                         _tower.BuyTower();
+
+                        UpdateUIAndDrawCircle();
                     }
                     else
                     {
@@ -34,12 +36,18 @@ namespace TowerDefence
             }
             else
             {
-                EventController.OnUpdateButtonsUI.Invoke(Tower, !_tower.IsMaxUpgrade);
-                EventController.OnUpdateInfoUI.Invoke(Tower.Range, Tower.Speed, Tower.Damage);
+                UpdateUIAndDrawCircle();
             }
 
             ActivePlotSetter.ActivePlot = this;
             EventController.OnPlotSelected.Invoke(this);
+        }
+
+        private void UpdateUIAndDrawCircle()
+        {
+            EventController.OnUpdateButtonsUI.Invoke(Tower, !_tower.IsMaxUpgrade);
+            EventController.OnUpdateInfoUI.Invoke(Tower.Range, Tower.Speed, Tower.Damage);
+            CircleRenderer.Instance.DrawCircle(Tower);
         }
     }
 }

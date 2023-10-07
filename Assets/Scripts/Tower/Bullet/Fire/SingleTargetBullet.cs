@@ -20,6 +20,8 @@ namespace TowerDefence
                 {
                     enemy.TakePeriodicalDamage(_periodicDamageInterval, _periodicDamageRate, _periodicDamageAmount);
                 }
+
+                _animator.SetBool("IsActive", false);
                 KillAction.Invoke(this);
             }
         }

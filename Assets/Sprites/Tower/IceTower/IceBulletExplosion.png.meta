@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tower 05 - Level 01 - Projectile - Impact_0
+      name: IceBulletExplosion_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3fd23024014b17488287af4ccc4c2c0
-      internalID: -27242197
+      spriteID: f625e62745c063e4aa3d3d055e5205bd
+      internalID: -71770680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 05 - Level 01 - Projectile - Impact_1
+      name: IceBulletExplosion_1
       rect:
         serializedVersion: 2
         x: 64
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e09f6ec2a82b2d3408535bf9c2fbad94
-      internalID: -241420752
+      spriteID: b027fb3fe1053e8458c9f013f43b1b9a
+      internalID: -1459958601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 05 - Level 01 - Projectile - Impact_2
+      name: IceBulletExplosion_2
       rect:
         serializedVersion: 2
         x: 128
@@ -192,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60d2f8ebe7ff73d4e9d4b442d10a4569
-      internalID: 147429131
+      spriteID: 641edd21cdaf6774d856a1ddb6b0b1ef
+      internalID: 1036599952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 05 - Level 01 - Projectile - Impact_3
+      name: IceBulletExplosion_3
       rect:
         serializedVersion: 2
         x: 192
@@ -213,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f90db3bb4375724688db63b33b9c673
-      internalID: -1304758724
+      spriteID: a7c8cb492b93a844fb3da271a9676481
+      internalID: 2072716329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 05 - Level 01 - Projectile - Impact_4
+      name: IceBulletExplosion_4
       rect:
         serializedVersion: 2
         x: 256
@@ -234,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 341f8f28970fe114081ee53e28441059
-      internalID: -878378164
+      spriteID: 383925bd0ae70194db19f5599dd1e822
+      internalID: -1751065225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 05 - Level 01 - Projectile - Impact_5
+      name: IceBulletExplosion_5
       rect:
         serializedVersion: 2
         x: 320
@@ -255,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 466b1c51c41fd0a4c870950d068ca9d2
-      internalID: 1535798532
+      spriteID: 2d8ca48dbe15d154bba62192a63b3b86
+      internalID: 243514260
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 05 - Level 01 - Projectile - Impact_6
+      name: IceBulletExplosion_6
       rect:
         serializedVersion: 2
         x: 384
@@ -276,14 +276,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51ea17542a0759e44aa0c83e4fa94c77
-      internalID: -389850525
+      spriteID: b2daab872235c3247960cceb6a8d3a97
+      internalID: 743046272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 05 - Level 01 - Projectile - Impact_7
+      name: IceBulletExplosion_7
       rect:
         serializedVersion: 2
         x: 448
@@ -297,14 +297,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7d5c5c5b074383408e6d1d27960e44f
-      internalID: 300988341
+      spriteID: 555757b8a48bd30408c34addc00b4c31
+      internalID: 653670879
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 05 - Level 01 - Projectile - Impact_8
+      name: IceBulletExplosion_8
       rect:
         serializedVersion: 2
         x: 512
@@ -318,8 +318,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ea97ba1aedf50a47a151148316e4ba0
-      internalID: 556745313
+      spriteID: 3157488b8d5b3224882a1f045c0a0894
+      internalID: 1097337002
       vertices: []
       indices: 
       edges: []
@@ -335,15 +335,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Tower 05 - Level 01 - Projectile - Impact_0: -27242197
-      Tower 05 - Level 01 - Projectile - Impact_1: -241420752
-      Tower 05 - Level 01 - Projectile - Impact_2: 147429131
-      Tower 05 - Level 01 - Projectile - Impact_3: -1304758724
-      Tower 05 - Level 01 - Projectile - Impact_4: -878378164
-      Tower 05 - Level 01 - Projectile - Impact_5: 1535798532
-      Tower 05 - Level 01 - Projectile - Impact_6: -389850525
-      Tower 05 - Level 01 - Projectile - Impact_7: 300988341
-      Tower 05 - Level 01 - Projectile - Impact_8: 556745313
+      IceBulletExplosion_0: -71770680
+      IceBulletExplosion_1: -1459958601
+      IceBulletExplosion_2: 1036599952
+      IceBulletExplosion_3: 2072716329
+      IceBulletExplosion_4: -1751065225
+      IceBulletExplosion_5: 243514260
+      IceBulletExplosion_6: 743046272
+      IceBulletExplosion_7: 653670879
+      IceBulletExplosion_8: 1097337002
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

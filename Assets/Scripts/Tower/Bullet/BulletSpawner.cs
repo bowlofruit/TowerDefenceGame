@@ -26,19 +26,7 @@ namespace TowerDefence
 
         private void Start()
         {
-            _bulletPool = new ObjectPool<Bullet>(() =>
-            {
-                return Instantiate(_bulletPrefab);
-            }, bullet =>
-            {
-                bullet.gameObject.SetActive(true);
-            }, bullet =>
-            {
-                bullet.gameObject.SetActive(false);
-            }, bullet =>
-            {
-                Destroy(bullet.gameObject);
-            }, false, 15, 25);
+            _bulletPool = new ObjectPool<Bullet>(InstantiateBullet, OnSpawnBullet, OnDespawnBullet, DestroyBullet, false, 15, 25);
         }
 
         private void Update()
@@ -78,6 +66,26 @@ namespace TowerDefence
         private void KillBullet(Bullet bullet)
         {
             _bulletPool.Release(bullet);
+        }
+
+        private void OnSpawnBullet(Bullet bullet)
+        {
+            bullet.gameObject.SetActive(true);
+        }
+
+        private void OnDespawnBullet(Bullet bullet)
+        {
+            bullet.gameObject.SetActive(false);
+        }
+
+        private static void DestroyBullet(Bullet bullet)
+        {
+            Destroy(bullet.gameObject);
+        }
+
+        private Bullet InstantiateBullet()
+        {
+            return Instantiate(_bulletPrefab);
         }
     }
 }

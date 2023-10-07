@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4618835207301690997}
   - component: {fileID: -3195403045318340957}
   - component: {fileID: 3746294410423784323}
+  - component: {fileID: 1807083812962826637}
   m_Layer: 7
   m_Name: IceBullet
   m_TagString: Untagged
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 782048700, guid: 58a7fb0499f377c469f88eff401a3a0a, type: 3}
+  m_Sprite: {fileID: -2022709881, guid: ef2bcaed75c464146a10c0a9319fca0a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -162,5 +163,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: -3195403045318340957}
+  _animator: {fileID: 1807083812962826637}
   _speedScalingFactor: 0.7
   _stopTimer: 2
+--- !u!95 &1807083812962826637
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7067866306174534334}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5e6c44b62e0892946b1ecf90222a8be2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

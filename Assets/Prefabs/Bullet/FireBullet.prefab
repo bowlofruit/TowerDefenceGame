@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4618835207301690997}
   - component: {fileID: -3195403045318340957}
   - component: {fileID: 3783785889251461211}
+  - component: {fileID: 4561990287587197032}
   m_Layer: 7
   m_Name: FireBullet
   m_TagString: Untagged
@@ -76,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 782048700, guid: 58a7fb0499f377c469f88eff401a3a0a, type: 3}
+  m_Sprite: {fileID: 1921651450, guid: 58a7fb0499f377c469f88eff401a3a0a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.08, y: 0.17}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -162,7 +163,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: -3195403045318340957}
+  _animator: {fileID: 4561990287587197032}
   _periodicDamageInterval: 2
   _periodicDamageAmount: 5
   _periodicDamageRate: 0.5
   _bulletSprite: {fileID: 198542880671368934}
+--- !u!95 &4561990287587197032
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7067866306174534334}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c8cde4f060ff5f849ad31011eba7a991, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

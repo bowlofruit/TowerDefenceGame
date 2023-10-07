@@ -78,6 +78,7 @@ namespace TowerDefence
         {
             EventController.OnTowerSell.Invoke(SellPrice);
             Destroy(gameObject);
+            ActivePlotSetter.ActivePlot = null;
         }
 
         public void UpgradeTower()

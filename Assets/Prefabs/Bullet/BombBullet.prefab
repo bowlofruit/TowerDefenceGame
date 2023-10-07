@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 782048700, guid: 58a7fb0499f377c469f88eff401a3a0a, type: 3}
+  m_Sprite: {fileID: -1699453166, guid: 36400b86a48f6c544ac1f4fb1ef252f8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: -3195403045318340957}
+  _animator: {fileID: 3566723411504767571}
   _explosionRadius: 1
   _areaPrefab: {fileID: 1953029361064654417, guid: 7d435479fff73d948b8318505d04e99d, type: 3}
   _areaLifeTime: 3

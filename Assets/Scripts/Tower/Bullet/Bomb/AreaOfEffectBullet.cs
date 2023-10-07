@@ -42,6 +42,8 @@ namespace TowerDefence
                 {
                     CreateArea(enemy);
                 }
+                _animator.SetBool("IsActive", false);
+
                 KillAction.Invoke(this);
             }
         }

@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tower 07 - Level X - Projectile - Impact_0
+      name: FireBulletExplosion_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 131d3db4844db614c861d247d95a9049
-      internalID: -326054652
+      spriteID: f12973c08c1ffb84d92b7b6423ee685d
+      internalID: -1402675928
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 07 - Level X - Projectile - Impact_1
+      name: FireBulletExplosion_1
       rect:
         serializedVersion: 2
         x: 64
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d0594527862104488c83578580e2494
-      internalID: 1406414394
+      spriteID: 59b54e3ddf1d0ac47901d30194433d73
+      internalID: 1834285478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 07 - Level X - Projectile - Impact_2
+      name: FireBulletExplosion_2
       rect:
         serializedVersion: 2
         x: 128
@@ -192,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8177f13f5d5b8ab4ea02fcc3572adf2e
-      internalID: 714190350
+      spriteID: 6b4d0bcdc00e28745900073f1f130dba
+      internalID: 1178973922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 07 - Level X - Projectile - Impact_3
+      name: FireBulletExplosion_3
       rect:
         serializedVersion: 2
         x: 192
@@ -213,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14d6f4b072b610649926ec681f465f8f
-      internalID: 1371452494
+      spriteID: 6b1077b6b6881ee4e9b2870bb2ef2b76
+      internalID: 1713511848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 07 - Level X - Projectile - Impact_4
+      name: FireBulletExplosion_4
       rect:
         serializedVersion: 2
         x: 256
@@ -234,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a829f6d09cd925448851080d3ee8724
-      internalID: 3710093
+      spriteID: 68b79e326eaee854991d044a43458598
+      internalID: -657632279
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 07 - Level X - Projectile - Impact_5
+      name: FireBulletExplosion_5
       rect:
         serializedVersion: 2
         x: 320
@@ -255,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7390a68ba51ea74382ee8c66b1b3fbe
-      internalID: 775545219
+      spriteID: c259fe56f2cea1148b9907dea2bc3e29
+      internalID: 1340566313
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 07 - Level X - Projectile - Impact_6
+      name: FireBulletExplosion_6
       rect:
         serializedVersion: 2
         x: 384
@@ -276,14 +276,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4878c9738670c7a49986220262a99f29
-      internalID: -1833759849
+      spriteID: f23bb2932c4e7df40aeefe565096c3d3
+      internalID: -988483668
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 07 - Level X - Projectile - Impact_7
+      name: FireBulletExplosion_7
       rect:
         serializedVersion: 2
         x: 448
@@ -297,14 +297,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95ee6fe1ba0e3f14383ed88de9d1d890
-      internalID: -53853105
+      spriteID: 25e7d6b14c972d9459634d6e944c02b8
+      internalID: 1439661678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 07 - Level X - Projectile - Impact_8
+      name: FireBulletExplosion_8
       rect:
         serializedVersion: 2
         x: 512
@@ -318,8 +318,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 486364804377c814b82e8b8517e4d6de
-      internalID: -923917186
+      spriteID: 257f5b3c5a88a5741ade538f4a97ecea
+      internalID: -1862889378
       vertices: []
       indices: 
       edges: []
@@ -335,15 +335,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Tower 07 - Level X - Projectile - Impact_0: -326054652
-      Tower 07 - Level X - Projectile - Impact_1: 1406414394
-      Tower 07 - Level X - Projectile - Impact_2: 714190350
-      Tower 07 - Level X - Projectile - Impact_3: 1371452494
-      Tower 07 - Level X - Projectile - Impact_4: 3710093
-      Tower 07 - Level X - Projectile - Impact_5: 775545219
-      Tower 07 - Level X - Projectile - Impact_6: -1833759849
-      Tower 07 - Level X - Projectile - Impact_7: -53853105
-      Tower 07 - Level X - Projectile - Impact_8: -923917186
+      FireBulletExplosion_0: -1402675928
+      FireBulletExplosion_1: 1834285478
+      FireBulletExplosion_2: 1178973922
+      FireBulletExplosion_3: 1713511848
+      FireBulletExplosion_4: -657632279
+      FireBulletExplosion_5: 1340566313
+      FireBulletExplosion_6: -988483668
+      FireBulletExplosion_7: 1439661678
+      FireBulletExplosion_8: -1862889378
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

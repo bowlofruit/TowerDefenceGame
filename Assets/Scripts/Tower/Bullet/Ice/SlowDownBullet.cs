@@ -13,6 +13,8 @@ namespace TowerDefence
             {
                 movement.ChangeSpeed(_speedScalingFactor, _stopTimer);
                 enemy.TakeDamage(Damage);
+
+                _animator.SetBool("IsActive", false);
                 KillAction.Invoke(this);
             }
         }
