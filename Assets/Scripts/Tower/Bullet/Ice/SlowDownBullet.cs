@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace TowerDefence
 {
@@ -13,9 +14,7 @@ namespace TowerDefence
             {
                 movement.ChangeSpeed(_speedScalingFactor, _stopTimer);
                 enemy.TakeDamage(Damage);
-
-                _animator.SetBool("IsActive", false);
-                KillAction.Invoke(this);
+                StartCoroutine(PlayAnimAndDestroy());
             }
         }
     }

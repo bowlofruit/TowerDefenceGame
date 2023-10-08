@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace TowerDefence
@@ -9,16 +10,16 @@ namespace TowerDefence
         [SerializeField] protected Animator _animator;
 
         protected Action<Bullet> KillAction { get; set; }
-        private float _speed;
         private Transform _target;
         protected bool _isUpgrade;
 
+        private const float BULLET_SPEED = 5f;
+
         public float Damage { get; set; }
 
-        public void Init(Action<Bullet> killAction, float speed, float damage, bool isUpgrade)
+        public void Init(Action<Bullet> killAction, float damage, bool isUpgrade)
         {
             KillAction = killAction;
-            _speed = speed;
             Damage = damage;
             _isUpgrade = isUpgrade;
         }
@@ -37,7 +38,16 @@ namespace TowerDefence
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + -90));
 
-            _rb.velocity = dir * _speed * 2;
+            _rb.velocity = dir * BULLET_SPEED;
+        }
+
+        protected IEnumerator PlayAnimAndDestroy()
+        {
+            _animator.SetBool("IsActive", false);
+
+            yield return new WaitForSeconds(0.2f);
+
+            KillAction.Invoke(this);
         }
     }
 }

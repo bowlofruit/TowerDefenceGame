@@ -91,7 +91,7 @@ namespace TowerDefence
             _isSpawning = true;
             _enemiesLeftToSpawn = _waveConfig.NumberOfEnemies;
 
-            _currentWaveHealthMultiplier *= 1.2f;
+            _currentWaveHealthMultiplier += 0.25f;
         }
 
         private void EndWave()
