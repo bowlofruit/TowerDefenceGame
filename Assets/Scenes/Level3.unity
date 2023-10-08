@@ -706,8 +706,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca2658c1b37e824da54f067454921fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineRenderer: {fileID: 218486479}
-  vertexCount: 36
+  _lineRenderer: {fileID: 218486479}
+  _vertexCount: 36
 --- !u!120 &218486479
 LineRenderer:
   serializedVersion: 2

@@ -15,4 +15,4 @@ MonoBehaviour:
   _health: 50
   _speed: 1.8
   _damage: 1
-  _reward: 25
+  _reward: 30

@@ -91,8 +91,8 @@ namespace TowerDefence
 
                 AudioController.Instance.PlayTowerUpgradeSound();
 
-                UpgradePrice += (int)(UpgradePrice * 1.5f + BuyPrice);
-                SellPrice += (int)(SellPrice * 1.2f + BuyPrice);
+                UpgradePrice += (int)(UpgradePrice * 1.7f);
+                SellPrice += (int)(SellPrice * 1.2f);
 
                 UpdateUI(!IsMaxUpgrade);
             }
