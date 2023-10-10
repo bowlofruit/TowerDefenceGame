@@ -93,8 +93,8 @@ public class LevelCreator : MonoBehaviour
     private string[] LoadLevelText(int i)
     {
         TextAsset tmpTxt = Resources.Load<TextAsset>($"Level{i}Ground");
-        string tmpStr = tmpTxt.text.Replace(Environment.NewLine, string.Empty);
-        return tmpStr.Split("!");
+        string tmpStr = tmpTxt.text;
+        return tmpStr.Split("\r\n");
     }
 
     private void LoadWaypoints()
