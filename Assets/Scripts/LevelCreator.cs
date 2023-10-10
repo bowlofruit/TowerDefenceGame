@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelCreator : MonoBehaviour
 {
-    [SerializeField] private int _fieldWidth, _fieldHeight;
     [SerializeField] private Camera _mainCamera;
 
     [SerializeField] private GameObject _sellPrefab;
@@ -15,6 +14,8 @@ public class LevelCreator : MonoBehaviour
 
     [SerializeField] private Sprite[] _tileSpr = new Sprite[2];
     [SerializeField] private List<GameObject> _wayPoints = new();
+
+    private int _fieldWidth, _fieldHeight;
     private GameObject[,] _allCells;
 
     private int currWayX, currWayY;
@@ -26,7 +27,6 @@ public class LevelCreator : MonoBehaviour
 
     private void Awake()
     {
-        _allCells = new GameObject[_fieldHeight, _fieldWidth];
         Instance = this;
     }
 
@@ -42,6 +42,10 @@ public class LevelCreator : MonoBehaviour
     {
         Vector3 worldVec = _mainCamera.ScreenToWorldPoint(new Vector3(0, Screen.height, 0));
         string[] levelStr = LoadLevelText(level);
+
+        _fieldHeight = levelStr.Length;
+        _fieldWidth = levelStr[0].Length;
+        _allCells = new GameObject[_fieldHeight, _fieldWidth];
 
         for (int i = 0; i < _fieldHeight; i++)
         {
@@ -90,9 +94,9 @@ public class LevelCreator : MonoBehaviour
         }
     }
 
-    private string[] LoadLevelText(int i)
+    private string[] LoadLevelText(int levelNum)
     {
-        TextAsset tmpTxt = Resources.Load<TextAsset>($"Level{i}Ground");
+        TextAsset tmpTxt = Resources.Load<TextAsset>($"Level{levelNum}Ground");
         string tmpStr = tmpTxt.text;
         return tmpStr.Split("\r\n");
     }
