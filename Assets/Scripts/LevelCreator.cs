@@ -97,7 +97,7 @@ public class LevelCreator : MonoBehaviour
     private string[] LoadLevelText(int levelNum)
     {
         TextAsset tmpTxt = Resources.Load<TextAsset>($"Level{levelNum}Ground");
-        string tmpStr = tmpTxt.text;
+        string tmpStr = tmpTxt.text.Trim();
         return tmpStr.Split("\r\n");
     }
 
