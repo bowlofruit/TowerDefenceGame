@@ -41,7 +41,7 @@ public class LevelCreator : MonoBehaviour
     private void CreateLevel(int level)
     {
         Vector3 worldVec = _mainCamera.ScreenToWorldPoint(new Vector3(0, Screen.height, 0));
-        string[] levelStr = LoadLevelText(level);
+        int[][] levelStr = LoadLevelText(level);
 
         _fieldHeight = levelStr.Length;
         _fieldWidth = levelStr[0].Length;
@@ -51,7 +51,7 @@ public class LevelCreator : MonoBehaviour
         {
             for (int j = 0; j < _fieldWidth; j++)
             {
-                int sprIndex = int.Parse(levelStr[i].ToCharArray()[j].ToString());
+                int sprIndex = levelStr[i][j];
                 Sprite spr = _tileSpr[sprIndex];
 
                 bool isGround = spr == _tileSpr[1];
@@ -94,12 +94,11 @@ public class LevelCreator : MonoBehaviour
         }
     }
 
-    private string[] LoadLevelText(int levelNum)
+    private int[][] LoadLevelText(int levelNum)
     {
         TextAsset tmpTxt = Resources.Load<TextAsset>($"Level{levelNum}Ground");
-        string tmpStr = tmpTxt.text.Trim();
-        string[] separators = { "\r\n", "\n" };
-        return tmpStr.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+        LevelData level = JsonUtility.FromJson<LevelData>(tmpTxt.text);
+        return level.Data;
     }
 
     private void LoadWaypoints()
