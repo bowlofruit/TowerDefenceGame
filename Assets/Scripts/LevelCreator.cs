@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TowerDefence;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -97,8 +98,8 @@ public class LevelCreator : MonoBehaviour
     private int[][] LoadLevelText(int levelNum)
     {
         TextAsset tmpTxt = Resources.Load<TextAsset>($"Level{levelNum}Ground");
-        LevelData level = JsonUtility.FromJson<LevelData>(tmpTxt.text);
-        return level.Data;
+        LevelDataArray[] level = JsonUtility.FromJson<LevelData>(tmpTxt.text).Data;
+        return level.Select(x => x.array).ToArray();
     }
 
     private void LoadWaypoints()

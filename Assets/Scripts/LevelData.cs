@@ -3,5 +3,11 @@
 [Serializable]
 public class LevelData
 {
-    public int[][]Data;
+    public LevelDataArray[]Data;
+}
+
+[Serializable]
+public class LevelDataArray
+{
+    public int[] array;
 }
